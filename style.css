@@ -42,13 +42,17 @@ nav ul li a {
     color: white;
 }
 
+.about-layout {
+    /* background-color: red; */
+    margin-top: 3rem;
+}
+
 
 .main-card {
     background-color: rgba(36, 37, 42, 0.6);
-    width: 98.8rem;
-    height: 81rem;
+    width: 55%;
+    min-height: 60rem;
     margin-left: 6rem;
-    margin-top: 4rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -67,7 +71,7 @@ nav ul li a {
     font-size: 2rem;
     color: white;
     margin-left: 7rem;
-    margin-top: 11rem;
+    margin-top: 8rem;
 }
 .my-details h3 {
     font-size: 4.4rem;
@@ -77,37 +81,40 @@ nav ul li a {
 .title {
     font-size: 6rem;
     margin: 0;
+    line-height: 1;
 }
 
 .my-icon {
-    width: 32.4rem;
-    height: 32.4rem;
+    width: 35%;
+    height: 50%;
     margin-right: 4rem;
-    margin-top: 11rem;
+    margin-top: 8rem;
     background-color: rgba(0, 63, 82, 1);
     border-radius: 50rem;
     overflow: hidden;
 }
 
 .my-icon img {
-    width: 32.4rem;
-    height: 32.4rem;
+    width: 100%;
+    height: 100%;
     margin-top: 1.5rem;
 }
 
+
 .socials-pill {
     background-color: rgba(38, 47, 56, 1);
-    width: 25.6rem;
-    height: 7.5rem;
+    width: 20rem;
     align-items: center;
-    margin-left: 2rem;
+    margin-left: 7rem;
     margin-bottom: 2rem;
     display: flex;
     justify-content: space-evenly;
     border-radius: 6rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
 }
 
 .socials-pill img {
-    width: 4.2rem;
-    height: 4.2rem;
+    width: 3.3rem;
+    height: 3.3rem;
 }
