@@ -1,0 +1,113 @@
+html {
+    font-size: 62.5%;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at 20% 80%, rgba(1, 0, 15, 1), rgba(8, 32, 39, 1));
+}
+
+nav {
+    background-color: rgba(36, 37, 42, 1);
+    display: flex;
+    align-items: center;
+    height: 55px;
+    color: white;
+}
+
+nav h1 {
+    margin-left: 6rem;
+    font-size: 2.2rem;
+    font-family: 'Oswald';
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
+    padding-right: 3rem;
+}
+
+nav ul li {
+    margin-right: 3rem;
+    font-size: 2.4rem;
+    font-family: 'Kameron';
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.main-card {
+    background-color: rgba(36, 37, 42, 0.6);
+    width: 98.8rem;
+    height: 81rem;
+    margin-left: 6rem;
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 2rem;
+    box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
+}
+
+.my-details {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'EB Garamond';
+}
+
+.text-box {
+    width: 38.3rem;
+    font-size: 2rem;
+    color: white;
+    margin-left: 7rem;
+    margin-top: 11rem;
+}
+.my-details h3 {
+    font-size: 4.4rem;
+    margin: 0;
+}
+
+.title {
+    font-size: 6rem;
+    margin: 0;
+}
+
+.my-icon {
+    width: 32.4rem;
+    height: 32.4rem;
+    margin-right: 4rem;
+    margin-top: 11rem;
+    background-color: rgba(0, 63, 82, 1);
+    border-radius: 50rem;
+    overflow: hidden;
+}
+
+.my-icon img {
+    width: 32.4rem;
+    height: 32.4rem;
+    margin-top: 1.5rem;
+}
+
+.socials-pill {
+    background-color: rgba(38, 47, 56, 1);
+    width: 25.6rem;
+    height: 7.5rem;
+    align-items: center;
+    margin-left: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 6rem;
+}
+
+.socials-pill img {
+    width: 4.2rem;
+    height: 4.2rem;
+}
