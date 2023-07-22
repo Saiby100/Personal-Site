@@ -9,6 +9,7 @@ body {
     color: white;
     font-family: 'EB Garamond';
     padding-bottom: 5rem;
+    overflow-x: hidden;
 }
 
 .primary-header {
@@ -16,6 +17,10 @@ body {
     align-items: center;
     justify-content: space-between;
     background-color: rgba(36, 37, 42, 1);
+}
+
+.mobile-nav-toggle {
+    display: none;
 }
 
 .logo {
@@ -42,16 +47,6 @@ nav ul li a {
     color: white;
 }
 
-.mobile-nav-toggle {
-    position:absolute;
-    aspect-ratio: 1;
-    top: 2rem;
-    right: 2rem;
-    width: 5rem;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0);
-    padding: 1rem;
-}
 
 .mobile-nav-toggle svg {
     width: 4rem;
@@ -210,6 +205,35 @@ nav ul li a {
         gap: 1.5rem;
         background: rgba(0, 63, 82, 0.6);
         backdrop-filter: blur(1.5rem);
+        transform: translate(100%);
+        transition: transform 350ms ease-out;
+    }
+
+    .details-container {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .socials {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    nav ul[data-visible="true"]{
+        transform: translate(0%);
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+        position:fixed;
+        aspect-ratio: 1;
+        top: 0.5rem;
+        right: 2rem;
+        width: 5rem;
+        z-index: 999;
+        background-color: rgba(0, 0, 0, 0);
+        padding: 0;
+        border: 0;
     }
 
     .my-icon {
