@@ -13,22 +13,36 @@
     <title>Website</title>
 </head>
 <body>
-    <nav>
-        <h1>Salahuddin</h1>
+    <header class="primary-header">
+        <h1 class="logo">Salahuddin</h1>
 
-        <ul>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Projects</a></li>
-            <li><a href="#">Skills</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
 
-    <div class="about-layout">
+        <button 
+        class="mobile-nav-toggle"
+        aria-controls="nav ul"
+        aria-expanded="false">
+            <!-- <span class="sr-only">Menu</span> -->
+            <svg width="800" height="791" viewBox="0 0 800 791" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M133.333 600H666.667" stroke="white" stroke-width="66.6667" stroke-linecap="round"/>
+            <path d="M133.333 400H666.667" stroke="white" stroke-width="66.6667" stroke-linecap="round"/>
+            <path d="M133.333 200H666.667" stroke="white" stroke-width="66.6667" stroke-linecap="round"/>
+            </svg>
+        </button>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Skills</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Resume</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="home-layout">
         <div class="main-card">
-            <div class="my-details">
-                <div class="text-box">
-                    <h3>Hi, I'm</h3>
+            <div class="details-container">
+                <div class="details-text-container">
+                    <h2>Hi, I'm</h2>
                     <p class="title">Salahuddin Saiet</p>
                     <p>
                         This will be a brief description of myself. This can include interests, current goals,
@@ -42,15 +56,15 @@
                     <img src="./images/me.png" alt="Picture of myself">
                 </div>
             </div>
-            <div class="socials-pill">
+            <div class="pill socials">
                 <a href="#">
-                    <img src="images/insta.png" alt="insta">
+                    <img src="images/socials_icons/insta.png" alt="insta">
                 </a>
                 <a href="#">
-                    <img src="images/github.png" alt="github">
+                    <img src="images/socials_icons/github.png" alt="github">
                 </a>
                 <a href="#">
-                    <img src="images/linkedin.png" alt="linkedin">
+                    <img src="images/socials_icons/linkedin.png" alt="linkedin">
                 </a>
             </div>
         </div>
@@ -58,6 +72,36 @@
         <div class="js-anim"></div>
     </div>
 
-    
+    <div class="skills-layout">
+        <div class="skills">
+            <h3>Programming Languages</h3>
+            <div class="pill lang-icons">
+                <img src="images/lang_icons/python.png" alt="python">
+                <img src="images/lang_icons/java.png" alt="java">
+                <img src="images/lang_icons/c.png" alt="c">
+            </div>
+
+            <h3>Design Languages</h3>
+            <div class="pill lang-icons">
+                <img src="images/lang_icons/html.png" alt="html">
+                <img src="images/lang_icons/css.png" alt="css">
+                <img src="images/lang_icons/js.png" alt="javascript">
+            </div>
+
+            <h3>Additional Technologies</h3>
+            <div class="pill lang-icons">
+                <img src="images/lang_icons/git.png" alt="git">
+                <img src="images/lang_icons/figma.png" alt="figma">
+                <img src="images/lang_icons/android.png" alt="android studio">
+                <img src="images/lang_icons/neovim.png" alt="neovim">
+                <img src="images/lang_icons/bash.png" alt="bash">
+            </div>
+        </div>
+        <div class="js-anim2"></div>
+    </div>
+
+    <footer></footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="app.js"></script>    
 </body>
 </html>

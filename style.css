@@ -1,24 +1,27 @@
 html {
     font-size: 62.5%;
 }
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: radial-gradient(circle at 20% 80%, rgba(1, 0, 15, 1), rgba(8, 32, 39, 1));
+    color: white;
+    font-family: 'EB Garamond';
+    padding-bottom: 5rem;
 }
 
-nav {
-    background-color: rgba(36, 37, 42, 1);
+.primary-header {
     display: flex;
     align-items: center;
-    height: 55px;
-    color: white;
+    justify-content: space-between;
+    background-color: rgba(36, 37, 42, 1);
 }
 
-nav h1 {
-    margin-left: 6rem;
+.logo {
     font-size: 2.2rem;
     font-family: 'Oswald';
+    margin-left: 6rem;
 }
 
 nav ul {
@@ -26,9 +29,6 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-    flex-grow: 1;
-    justify-content: flex-end;
-    padding-right: 3rem;
 }
 
 nav ul li {
@@ -42,16 +42,30 @@ nav ul li a {
     color: white;
 }
 
-.about-layout {
-    /* background-color: red; */
-    margin-top: 3rem;
+.mobile-nav-toggle {
+    position:absolute;
+    aspect-ratio: 1;
+    top: 2rem;
+    right: 2rem;
+    width: 5rem;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 1rem;
 }
 
+.mobile-nav-toggle svg {
+    width: 4rem;
+    height: 4rem;
+}
+
+.home-layout {
+    margin-top: 3rem;
+}
 
 .main-card {
     background-color: rgba(36, 37, 42, 0.6);
     width: 55%;
-    min-height: 60rem;
+    min-height: 70rem;
     margin-left: 6rem;
     display: flex;
     flex-direction: column;
@@ -60,22 +74,24 @@ nav ul li a {
     box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.5);
 }
 
-.my-details {
+.details-container {
     display: flex;
     justify-content: space-between;
     font-family: 'EB Garamond';
 }
 
-.text-box {
+.details-text-container {
     width: 38.3rem;
     font-size: 2rem;
     color: white;
     margin-left: 7rem;
     margin-top: 8rem;
 }
-.my-details h3 {
+
+.details-container h2 {
     font-size: 4.4rem;
     margin: 0;
+    font-weight: inherit;
 }
 
 .title {
@@ -100,21 +116,137 @@ nav ul li a {
     margin-top: 1.5rem;
 }
 
-
-.socials-pill {
+.pill {
     background-color: rgba(38, 47, 56, 1);
-    width: 20rem;
     align-items: center;
-    margin-left: 7rem;
-    margin-bottom: 2rem;
     display: flex;
     justify-content: space-evenly;
     border-radius: 6rem;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+    overflow: hidden;
 }
 
-.socials-pill img {
+.socials {
+    width: 20rem;
+    margin-left: 7rem;
+    margin-bottom: 2rem;
+}
+
+.socials img {
     width: 3.3rem;
     height: 3.3rem;
+}
+
+.skills {
+    margin-top: 7rem;
+    margin-left: 7rem;
+    font-size: 4rem;
+    width: 55%;
+}
+
+.skills h3 {
+    margin: 0;
+    margin-top: 4rem;
+    font-weight: inherit;
+}
+
+.lang-icons {
+    display: inline-block;
+    margin-left: 5rem;
+    margin-top: 3rem;
+    padding-left: 3rem;
+    padding-right: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.lang-icons img {
+    width: 7rem;
+    height: 7rem;
+    margin-right: 2rem;
+}
+
+/* 1000 pixels */
+@media (max-width: 1000px) {
+    .main-card {
+        width: auto;
+        margin: 0;
+    }
+
+    .home-layout {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+    .skills {
+        width: auto;
+        margin: 0;
+    }
+
+    .skills-layout {
+        padding-left: 6rem;
+        padding-right: 6rem;
+    }
+
+    .lang-icons img {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+@media (max-width: 692px) {
+
+    nav ul {
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: steelblue;
+        flex-direction: column;
+        padding-left: 3rem;
+        padding-top: min(30vh, 10rem);
+        padding-right: 12rem;
+        height: 100vh;
+        z-index: 1;
+        gap: 1.5rem;
+        background: rgba(0, 63, 82, 0.6);
+        backdrop-filter: blur(1.5rem);
+    }
+
+    .my-icon {
+        position: absolute;
+        width: 8rem;
+        height: 8rem;;
+        top: 1;
+        right: 5rem;
+        margin-top: 2rem;
+    }
+
+    .my-icon img {
+        margin-top: 0.5rem;
+    }
+
+    .details-text-container {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .skills {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .skills h3 {
+        font-size: 3.2rem;
+    }
+
+    .lang-icons {
+        margin-left: 0;
+    }
+
+    .lang-icons img {
+        width: 4rem;
+        height: 4rem;
+        margin-right: 1rem;
+    }
 }
