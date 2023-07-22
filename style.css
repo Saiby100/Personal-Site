@@ -51,6 +51,7 @@ nav ul li a {
 .mobile-nav-toggle svg {
     width: 4rem;
     height: 4rem;
+    cursor: pointer;
 }
 
 .home-layout {

@@ -1,24 +1,10 @@
-// gsap.fromTo('.socials img', {x: 500}, {x: 0, duration: 1})
+gsap.fromTo('.socials img', {x: 500}, {x: 0, duration: 1})
 
 const primaryNav = document.querySelector('nav ul');
 const navToggle = document.querySelector('.mobile-nav-toggle');
 
 navToggle.addEventListener('click', () => {
     const visibility = primaryNav.getAttribute("data-visible");
-
-    function rotateTopStroke(degrees) {
-        gsap.to('.top-stroke', {
-            rotation: degrees,
-            duration: 1
-        });
-    }
-
-    function rotateBotStroke(degrees) {
-        gsap.to('.bot-stroke', {
-            rotation: degrees,
-            duration: 1
-        });
-    }
 
     if (visibility == "false") {
         primaryNav.setAttribute("data-visible", true);
@@ -28,12 +14,12 @@ navToggle.addEventListener('click', () => {
             onComplete: function () {
                 gsap.to('.top-stroke', {
                     rotation: -45,
-                    duration: 1
+                    duration: .6
                 });
 
                 gsap.to('.bot-stroke', {
                     rotation: 45,
-                    duration: 1
+                    duration: .6
                 });
             }
         });
@@ -47,7 +33,7 @@ navToggle.addEventListener('click', () => {
 
         gsap.to('.bot-stroke', {
             rotation: 0,
-            duration: 1,
+            duration: .6,
             onComplete: function () {
                 gsap.to('.mid-stroke', {
                     opacity: 1, 
