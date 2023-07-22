@@ -1,5 +1,6 @@
 gsap.fromTo('.socials img', {x: 500}, {x: 0, duration: 1})
 
+// Hamburger Animation
 const primaryNav = document.querySelector('nav ul');
 const navToggle = document.querySelector('.mobile-nav-toggle');
 
@@ -43,3 +44,18 @@ navToggle.addEventListener('click', () => {
         });
     }
 });
+
+// Carousel Animation
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+        } else {
+            entry.target.classList.remove('show');
+        }
+    });
+
+});
+
+const hiddenElements = document.querySelectorAll('.hidden');
+hiddenElements.forEach((element) => observer.observe(element));
