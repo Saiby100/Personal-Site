@@ -135,8 +135,11 @@ nav ul li a {
     height: 3.3rem;
 }
 
+.skills-layout {
+    margin-top: 20rem;
+}
+
 .skills {
-    margin-top: 7rem;
     margin-left: 7rem;
     font-size: 2em;
     width: 55%;
@@ -170,6 +173,51 @@ nav ul li a {
     border-radius: 1.5rem;
 }
 
+.projects-layout {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20rem;
+}
+
+.projects-layout h2 {
+    font-size: 2.5em;
+    font-weight: inherit;
+}
+
+.projects-title2 {
+    display: none;
+}
+
+.projects-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 5rem;
+}
+
+.projects-col img {
+    width: 20em;
+    height: auto;
+    vertical-align: middle;
+}
+
+.project-container {
+    background: linear-gradient(to right, rgba(0, 38, 44, 1), rgba(0, 79, 90, 1));
+    padding: 1.2rem;
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+/* Animation classes */
+.card:hover {
+    background: linear-gradient(to right, rgba(0, 87, 255, .7), rgba(0, 250, 205, .7));
+}
+
+.project-container:hover {
+    background: linear-gradient(to right, rgba(0, 87, 255, .7), rgba(0, 250, 205, .7));
+}
+
 .hidden {
     opacity: 0;
     filter: blur(0.5rem);
@@ -177,22 +225,17 @@ nav ul li a {
     transition: all 1s;
 }
 
+.hidden-right {
+    opacity: 0;
+    filter: blur(0.5rem);
+    transform: translateX(100%);
+    transition: all 1s;
+}
+
 .show {
     opacity: 1;
     filter: blur(0rem);
     transform: translateX(0);
-}
-
-.card:nth-child(2) 
-.card:nth-child(5) 
-.card:nth-child(8){
-    transition-delay: 500ms;
-}
-
-.card:nth-child(3) 
-.card:nth-child(6) 
-.card:nth-child(9){
-    transition-delay: 1000ms;
 }
 
 /* 1000 pixels */
@@ -226,9 +269,19 @@ nav ul li a {
         width: 5rem;
         height: 5rem;
     }
+
+    .projects-title1{
+        display: none;
+    }
+
+
 }
 
 @media (max-width: 692px) {
+
+    .logo {
+        margin-left: 2rem;
+    }
 
     nav ul {
         position: fixed;
@@ -272,7 +325,7 @@ nav ul li a {
 
     .mobile-nav-toggle {
         display: block;
-        position:fixed;
+        position:absolute;
         aspect-ratio: 1;
         top: 0.5rem;
         right: 2rem;
@@ -310,11 +363,21 @@ nav ul li a {
     .skills h3 {
         font-size: 3.2rem;
     }
+
     .carousel {
         justify-content: center;
     }
 
     .carousel img {
         width: 4rem;
+    }
+
+    .projects-layout {
+        flex-direction: column;
+        gap: 4rem;
+    }
+
+    .projects-title2 {
+        display: block;
     }
 }

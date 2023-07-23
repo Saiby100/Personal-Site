@@ -25,6 +25,8 @@ navToggle.addEventListener('click', () => {
             }
         });
 
+        navToggle.style.position = "fixed";
+
     } else {
         primaryNav.setAttribute("data-visible", false);
         gsap.to('.top-stroke', {
@@ -42,6 +44,7 @@ navToggle.addEventListener('click', () => {
                     });
                 }
         });
+        navToggle.style.position = "absolute";
     }
 });
 
@@ -58,4 +61,7 @@ const observer = new IntersectionObserver((entries) => {
 });
 
 const hiddenElements = document.querySelectorAll('.hidden');
+const rightHiddenElements = document.querySelectorAll('.hidden-right');
+
 hiddenElements.forEach((element) => observer.observe(element));
+rightHiddenElements.forEach((element) => observer.observe(element));
