@@ -57,11 +57,12 @@ const observer = new IntersectionObserver((entries) => {
             entry.target.classList.remove('show');
         }
     });
-
 });
 
 const hiddenElements = document.querySelectorAll('.hidden');
 const rightHiddenElements = document.querySelectorAll('.hidden-right');
+const hiddenCardElements = document.querySelectorAll('.card-hidden');
 
 hiddenElements.forEach((element) => observer.observe(element));
 rightHiddenElements.forEach((element) => observer.observe(element));
+hiddenCardElements.forEach((element) => observer.observe(element));

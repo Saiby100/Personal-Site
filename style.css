@@ -155,7 +155,7 @@ nav ul li a {
     display: flex;
     flex-direction: row;
     margin-top: 2rem;
-    gap: 0.5em;
+    gap: 0.3em;
     padding-left: 2rem;
 }
 
@@ -223,6 +223,27 @@ nav ul li a {
     filter: blur(0.5rem);
     transform: translateX(-100%);
     transition: all 1s;
+}
+
+.card-hidden {
+    opacity: 0;
+    filter: blur(0.5rem);
+    transform: translateX(-100%);
+    transition: all 1s;
+}
+
+.card:nth-child(2) {
+    transition-delay: 200ms;
+}
+
+.card:nth-child(3) {
+    transition-delay: 400ms;
+}
+.card:nth-child(4) {
+    transition-delay: 400ms;
+}
+.card:nth-child(5) {
+    transition-delay: 400ms;
 }
 
 .hidden-right {
