@@ -1,4 +1,5 @@
 - [ ] Centralise links and repeated information
-- [ ] Modularise styling (low priority)
 - [ ] Add self image somewhere (nav left maybe)
+- [ ] Deploy to vercel
 - [ ] Make info better (less generic and boring)
+- [ ] Modularise styling (low priority)
