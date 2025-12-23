@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail,  MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -28,20 +28,14 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'hello@yourname.dev',
-      link: 'mailto:hello@yourname.dev',
-    },
-    {
-      icon: Phone,
-      title: 'Phone',
-      value: '+1 (555) 123-4567',
-      link: 'tel:+15551234567',
+      value: 'salahuddinsaiet.10@gmail.com',
+      link: 'mailto:salahuddinsaiet.10@gmail.com',
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'San Francisco, CA',
-      link: null,
+      value: 'Cape Town, South Africa',
+      link: 'https://map.google.com/?q=Cape+Town,+South+Africa',
     },
   ];
 
@@ -76,7 +70,7 @@ const Contact: React.FC = () => {
             </span>
           </h2>
           <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-            Have a project in mind or just want to chat? I'd love to hear from you!
+            Want to chat? I'd love to hear from you!
           </p>
         </div>
 
@@ -85,8 +79,8 @@ const Contact: React.FC = () => {
             <div>
               <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
               <p className="text-gray-400 text-lg leading-relaxed mb-8">
-                I'm always interested in new opportunities, exciting projects, and meeting fellow developers. 
-                Whether you have a question, want to collaborate, or just want to say hi, feel free to reach out!
+                I'm always interested in hearing about cool projects, and meeting fellow developers.
+                Feel free to reach out!
               </p>
             </div>
 
@@ -176,7 +170,7 @@ const Contact: React.FC = () => {
                   />
                 </div>
               </div>
-              
+
               <div>
                 <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
                   Subject
@@ -192,7 +186,7 @@ const Contact: React.FC = () => {
                   placeholder="What's this about?"
                 />
               </div>
-              
+
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
                   Message
@@ -208,7 +202,7 @@ const Contact: React.FC = () => {
                   placeholder="Tell me about your project or just say hello!"
                 ></textarea>
               </div>
-              
+
               <button
                 type="submit"
                 className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
