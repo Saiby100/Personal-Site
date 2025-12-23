@@ -84,12 +84,12 @@ const About: React.FC = () => {
                   <div className="text-sm text-gray-400">Years Experience</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-cyan-400">50+</div>
-                  <div className="text-sm text-gray-400">Projects Completed</div>
+                  <div className="text-2xl font-bold text-cyan-400">Don't Ask</div>
+                  <div className="text-sm text-gray-400">Unfinished Projects</div>
                 </div>
                 <div>
-                  <div className="text-2xl font-bold text-blue-400">15+</div>
-                  <div className="text-sm text-gray-400">Technologies</div>
+                  <div className="text-2xl font-bold text-blue-400">7</div>
+                  <div className="text-sm text-gray-400">App Ideas</div>
                 </div>
                 <div>
                   <div className="text-2xl font-bold text-purple-400">∞</div>

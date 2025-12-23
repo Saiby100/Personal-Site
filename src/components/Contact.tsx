@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail,  MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail,  MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -43,20 +43,20 @@ const Contact: React.FC = () => {
     {
       icon: Github,
       name: 'GitHub',
-      url: 'https://github.com/yourusername',
+      url: 'https://github.com/saiby100',
       color: 'hover:text-gray-400',
     },
     {
       icon: Linkedin,
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/yourusername',
+      url: 'www.linkedin.com/in/salahuddin-saiet-2a7190241',
       color: 'hover:text-blue-400',
     },
     {
-      icon: Twitter,
-      name: 'Twitter',
-      url: 'https://twitter.com/yourusername',
-      color: 'hover:text-cyan-400',
+      icon: Instagram,
+      name: 'Instagram',
+      url: 'https://instagram.com/_salah_btw',
+      color: 'hover:text-pink-400',
     },
   ];
 
@@ -127,10 +127,8 @@ const Contact: React.FC = () => {
             <div className="bg-gradient-to-r from-purple-600/10 to-cyan-600/10 rounded-lg p-6 border border-purple-500/20">
               <h4 className="text-lg font-semibold mb-3 text-purple-300">Available for</h4>
               <ul className="space-y-2 text-gray-300">
-                <li>• Full-time opportunities</li>
-                <li>• Freelance projects</li>
-                <li>• Technical consulting</li>
                 <li>• Open source collaboration</li>
+                <li>• Things</li>
               </ul>
             </div>
           </div>

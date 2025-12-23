@@ -83,7 +83,7 @@ const Skills: React.FC = () => {
 
   const experience = [
     {
-      year: '2024',
+      year: '2024 - Present',
       title: 'Software Developer',
       company: 'Lowdefy',
       description: 'Started my professional journey, learning and contributing to various projects.',
@@ -154,11 +154,11 @@ const Skills: React.FC = () => {
               {experience.map((exp, index) => (
                 <div key={index} className="relative">
                   <div className="bg-gray-800 p-4 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-all duration-300">
-                    <div className="flex items-center mb-2">
-                      <div className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white px-2 py-1 rounded text-sm font-bold mr-3">
+                    <div className="flex mb-2 justify-between">
+                      <h4 className="font-semibold text-lg">{exp.title}</h4>
+                      <div className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white px-2 py-1 rounded text-sm font-bold">
                         {exp.year}
                       </div>
-                      <h4 className="font-semibold text-lg">{exp.title}</h4>
                     </div>
                     <p className="text-purple-400 font-medium mb-2">{exp.company}</p>
                     <p className="text-gray-400 text-sm">{exp.description}</p>
