@@ -1,0 +1,4 @@
+- [ ] Centralise links and repeated information
+- [ ] Modularise styling (low priority)
+- [ ] Add self image somewhere (nav left maybe)
+- [ ] Make info better (less generic and boring)
