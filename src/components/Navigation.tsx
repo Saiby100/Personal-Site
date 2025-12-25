@@ -1,8 +1,8 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
 import { navItems, scrollToSection as scrollToSectionUtil } from '../constants/navigation';
-import { personal } from '../constants/portfolioConfig';
-import { gradients } from '../constants/styles';
+import { personal, images } from '../constants/portfolioConfig';
+import { gradients, transitions } from '../constants/styles';
 
 interface NavigationProps {
   activeSection: string;
@@ -21,9 +21,18 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className={`text-xl font-bold ${gradients.textPurpleCyan}`}>
-              {personal.name}
-            </span>
+            <div className="flex items-center gap-3">
+              <div className={`p-[1.5px] rounded-full ${gradients.bgPurpleBlue} ${transitions.scaleSmall}`}>
+                <img
+                  src={images.avatar}
+                  alt={`${personal.name} avatar`}
+                  className="w-9 h-9 rounded-full object-cover"
+                />
+              </div>
+              <span className={`text-xl font-bold ${gradients.textPurpleCyan}`}>
+                {personal.name}
+              </span>
+            </div>
           </div>
 
           <div className="hidden md:block">
