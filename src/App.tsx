@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Contact from './components/Contact';
 import Terminal from './components/Terminal';
 import Navigation from './components/Navigation';
+import { backgrounds, text } from './constants/styles';
 
 function App() {
   const [activeSection, setActiveSection] = useState('hero');
@@ -32,7 +33,7 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-gray-900 text-white">
+    <div className={`${backgrounds.primary} ${text.primary}`}>
       <Navigation activeSection={activeSection} />
       <Hero />
       <About />

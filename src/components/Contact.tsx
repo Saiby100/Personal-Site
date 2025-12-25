@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Mail, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
 import emailjs from '@emailjs/browser';
 import { social, contact } from '../constants/portfolioConfig';
-import { gradients, layouts, cards, focus, transitions } from '../constants/styles';
+import { gradients, layouts, cards, focus, transitions, text, inputs, backgrounds, accent } from '../constants/styles';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -81,19 +81,16 @@ const Contact: React.FC = () => {
       icon: Github,
       name: 'GitHub',
       url: social.github,
-      color: 'hover:text-gray-400',
     },
     {
       icon: Linkedin,
       name: 'LinkedIn',
       url: social.linkedin,
-      color: 'hover:text-blue-400',
     },
     {
       icon: Instagram,
       name: 'Instagram',
       url: social.instagram,
-      color: 'hover:text-pink-400',
     },
   ];
 
@@ -102,11 +99,11 @@ const Contact: React.FC = () => {
       <div className={layouts.containerMedium}>
         <div className={layouts.sectionHeader}>
           <h2 className={layouts.heading}>
-            <span className={gradients.textPurpleCyan}>
+            <span className={gradients.textAccent}>
               Get In Touch
             </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className={`text-xl ${text.muted} max-w-3xl mx-auto`}>
             Want to chat? I'd love to hear from you!
           </p>
         </div>
@@ -115,7 +112,7 @@ const Contact: React.FC = () => {
           <div className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold mb-6">Let's Connect</h3>
-              <p className="text-gray-400 text-lg leading-relaxed mb-8">
+              <p className={`${text.muted} text-lg leading-relaxed mb-8`}>
                 I'm always interested in hearing about cool projects, and meeting fellow developers.
                 Feel free to reach out!
               </p>
@@ -124,7 +121,7 @@ const Contact: React.FC = () => {
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-center space-x-4">
-                  <div className={`${gradients.bgPurpleCyan} p-3 rounded-lg`}>
+                  <div className={`${gradients.bgAccent} p-3 rounded-lg`}>
                     <info.icon size={24} className="text-white" />
                   </div>
                   <div>
@@ -132,12 +129,12 @@ const Contact: React.FC = () => {
                     {info.link ? (
                       <a
                         href={info.link}
-                        className="text-gray-400 hover:text-purple-400 transition-colors"
+                        className={`${text.muted} hover:text-[var(--accent-400)] transition-colors`}
                       >
                         {info.value}
                       </a>
                     ) : (
-                      <p className="text-gray-400">{info.value}</p>
+                      <p className={text.muted}>{info.value}</p>
                     )}
                   </div>
                 </div>
@@ -153,7 +150,7 @@ const Contact: React.FC = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`bg-gray-800 p-3 rounded-lg ${transitions.scaleMedium} ${social.color}`}
+                    className={`${backgrounds.tertiary} p-3 rounded-lg ${transitions.scaleMedium} hover:bg-[var(--accent-600)]`}
                   >
                     <social.icon size={24} />
                   </a>
@@ -162,8 +159,8 @@ const Contact: React.FC = () => {
             </div>
 
             <div className={cards.gradient}>
-              <h4 className="text-lg font-semibold mb-3 text-purple-300">Available for</h4>
-              <ul className="space-y-2 text-gray-300">
+              <h4 className={`text-lg font-semibold mb-3 ${accent.text[300]}`}>Available for</h4>
+              <ul className={`space-y-2 ${text.secondary}`}>
                 <li>• Open source collaboration</li>
                 <li>• Things</li>
               </ul>
@@ -176,7 +173,7 @@ const Contact: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="name" className={`block text-sm font-medium ${text.secondary} mb-2`}>
                     Name
                   </label>
                   <input
@@ -186,12 +183,12 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg ${focus.ring} text-white`}
+                    className={`w-full px-4 py-3 ${inputs.base} ${focus.ring}`}
                     placeholder="Your name"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  <label htmlFor="email" className={`block text-sm font-medium ${text.secondary} mb-2`}>
                     Email
                   </label>
                   <input
@@ -201,14 +198,14 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className={`w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg ${focus.ring} text-white`}
+                    className={`w-full px-4 py-3 ${inputs.base} ${focus.ring}`}
                     placeholder="your@email.com"
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="subject" className={`block text-sm font-medium ${text.secondary} mb-2`}>
                   Subject
                 </label>
                 <input
@@ -218,13 +215,13 @@ const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className={`w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg ${focus.ring} text-white`}
+                  className={`w-full px-4 py-3 ${inputs.base} ${focus.ring}`}
                   placeholder="What's this about?"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                <label htmlFor="message" className={`block text-sm font-medium ${text.secondary} mb-2`}>
                   Message
                 </label>
                 <textarea
@@ -234,7 +231,7 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className={`w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg ${focus.ring} text-white resize-none`}
+                  className={`w-full px-4 py-3 ${inputs.base} ${focus.ring} resize-none`}
                   placeholder="Tell me about your project or just say hello!"
                 ></textarea>
               </div>
@@ -242,7 +239,7 @@ const Contact: React.FC = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`w-full ${gradients.bgPurpleCyan} hover:from-purple-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-semibold ${transitions.scaleSmall} flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed`}
+                className={`w-full ${gradients.bgAccent} text-white px-6 py-3 rounded-lg font-semibold ${transitions.scaleSmall} flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed`}
               >
                 <Send size={20} />
                 <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
@@ -250,13 +247,13 @@ const Contact: React.FC = () => {
 
               {submitStatus === 'success' && (
                 <div className="p-4 bg-green-900/30 border border-green-600 rounded-lg text-green-400">
-                  ✓ Message sent successfully! I'll get back to you soon.
+                  Message sent successfully! I'll get back to you soon.
                 </div>
               )}
 
               {submitStatus === 'error' && (
                 <div className="p-4 bg-red-900/30 border border-red-600 rounded-lg text-red-400">
-                  ✗ Failed to send message. Please try emailing me directly at {contact.email}
+                  Failed to send message. Please try emailing me directly at {contact.email}
                 </div>
               )}
             </form>
