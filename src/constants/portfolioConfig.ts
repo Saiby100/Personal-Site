@@ -25,10 +25,15 @@ export interface ProfessionalInfo {
   };
 }
 
+export interface Images {
+  avatar: string;
+}
+
 export interface PortfolioConfig {
   personal: ProfessionalInfo;
   contact: ContactInfo;
   social: SocialLinks;
+  images: Images;
 }
 
 export const portfolioConfig: PortfolioConfig = {
@@ -53,7 +58,10 @@ export const portfolioConfig: PortfolioConfig = {
     linkedin: 'https://www.linkedin.com/in/salahuddin-saiet-2a7190241',
     instagram: 'https://instagram.com/_salah_btw',
   },
+  images: {
+    avatar: '/me.png',
+  },
 };
 
 // Convenience exports
-export const { personal, contact, social } = portfolioConfig;
+export const { personal, contact, social, images } = portfolioConfig;

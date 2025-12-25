@@ -1,5 +1,5 @@
 - [x] Centralise links and repeated information
-- [ ] Add self image somewhere (nav left maybe)
+- [x] Add self image somewhere (nav left maybe)
 - [x] Implement form submission
 - [x] Deploy to vercel
 - [ ] Integrate an LLM
