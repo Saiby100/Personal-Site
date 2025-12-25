@@ -22,7 +22,7 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
             <div className="flex items-center gap-3">
-              <div className={`p-[1.5px] rounded-full bg-gradient-to-r from-purple-500 to-cyan-500 ${transitions.scaleSmall}`}>
+              <div className={`p-[1.5px] rounded-full ${gradients.bgPurpleBlue} ${transitions.scaleSmall}`}>
                 <img
                   src={images.avatar}
                   alt={`${personal.name} avatar`}
