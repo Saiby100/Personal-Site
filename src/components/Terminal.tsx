@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Terminal as TerminalIcon } from 'lucide-react';
+import { personal, contact, social } from '../constants/portfolioConfig';
+import { gradients, layouts, backgrounds } from '../constants/styles';
 
 const Terminal: React.FC = () => {
   const [input, setInput] = useState('');
@@ -27,8 +29,8 @@ const Terminal: React.FC = () => {
 📱 Mobile App Specialist
 🛠️  Tool & Language Creator
 
-I'm passionate about building software that makes a difference. 
-From mobile apps to custom programming languages, I love tackling 
+I'm passionate about building software that makes a difference.
+From mobile apps to custom programming languages, I love tackling
 complex challenges and creating elegant solutions.`,
 
     skills: () => `💻 Technical Skills:
@@ -49,14 +51,14 @@ complex challenges and creating elegant solutions.`,
 Type "cat project1.md" to learn more about specific projects!`,
 
     contact: () => `📧 Get in touch:
-• Email: hello@yourname.dev
-• LinkedIn: linkedin.com/in/yourusername
-• GitHub: github.com/yourusername
-• Location: San Francisco, CA
+• Email: ${contact.email}
+• LinkedIn: ${social.linkedin}
+• GitHub: ${social.github}
+• Location: ${contact.location}
 
 I'm always open to new opportunities and interesting conversations!`,
 
-    whoami: () => 'developer',
+    whoami: () => personal.shortTitle,
 
     pwd: () => currentDirectory,
 
@@ -128,14 +130,14 @@ Features a custom terminal emulator for fun interactions!`,
 
   const executeCommand = (cmd: string) => {
     const [command, ...args] = cmd.trim().split(' ');
-    
+
     if (command === '') return '';
-    
+
     if (commands[command as keyof typeof commands]) {
       const handler = commands[command as keyof typeof commands];
       return typeof handler === 'function' ? handler(args) : handler;
     }
-    
+
     return `Command not found: ${command}. Type "help" for available commands.`;
   };
 
@@ -144,7 +146,7 @@ Features a custom terminal emulator for fun interactions!`,
     if (!input.trim()) return;
 
     const output = executeCommand(input);
-    
+
     if (input.trim() === 'clear') {
       setHistory([]);
     } else {
@@ -154,7 +156,7 @@ Features a custom terminal emulator for fun interactions!`,
         { command: '', output, type: output.includes('not found') ? 'error' : 'output' },
       ]);
     }
-    
+
     setInput('');
   };
 
@@ -165,11 +167,11 @@ Features a custom terminal emulator for fun interactions!`,
   }, [history]);
 
   return (
-    <section id="terminal" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
+    <section id="terminal" className={`${layouts.section} ${backgrounds.darkTransparent}`}>
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+          <h2 className={layouts.heading}>
+            <span className={gradients.textPurpleCyan}>
               Interactive Terminal
             </span>
           </h2>
@@ -200,7 +202,7 @@ Features a custom terminal emulator for fun interactions!`,
                 {entry.type === 'command' && (
                   <div className="flex items-center">
                     <span className="text-green-400 mr-2">
-                      developer@portfolio:{currentDirectory}$
+                      {personal.shortTitle}@portfolio:{currentDirectory}$
                     </span>
                     <span className="text-white">{entry.command}</span>
                   </div>
@@ -220,7 +222,7 @@ Features a custom terminal emulator for fun interactions!`,
 
             <form onSubmit={handleSubmit} className="flex items-center mt-2">
               <span className="text-green-400 mr-2">
-                developer@portfolio:{currentDirectory}$
+                {personal.shortTitle}@portfolio:{currentDirectory}$
               </span>
               <input
                 type="text"
@@ -236,7 +238,7 @@ Features a custom terminal emulator for fun interactions!`,
 
         <div className="mt-8 text-center">
           <p className="text-gray-400">
-            💡 Tip: This terminal supports tab completion and command history. 
+            💡 Tip: This terminal supports tab completion and command history.
             Try exploring with commands like "ls", "cat", and "help"!
           </p>
         </div>

@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Code, Smartphone, Server, PenTool as Tool, Database, Cloud, Brain } from 'lucide-react';
+import { personal } from '../constants/portfolioConfig';
+import { gradients, layouts, cards, transitions, backgrounds } from '../constants/styles';
 
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('frontend');
@@ -84,19 +86,19 @@ const Skills: React.FC = () => {
   const experience = [
     {
       year: '2024 - Present',
-      title: 'Software Developer',
-      company: 'Lowdefy',
+      title: personal.title,
+      company: personal.company,
       description: 'Started my professional journey, learning and contributing to various projects.',
     },
   ];
 
-  const renderSkills = (skills: any[]) => {
+  const renderSkills = (skills: Array<{ name: string; color: string }>) => {
     return (
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {skills.map((skill, index) => (
           <div
             key={index}
-            className={`bg-gradient-to-r ${skill.color} p-4 rounded-lg text-white font-semibold text-center transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl`}
+            className={`bg-gradient-to-r ${skill.color} p-4 rounded-lg text-white font-semibold text-center ${transitions.scaleSmall} shadow-lg hover:shadow-xl`}
           >
             {skill.name}
           </div>
@@ -106,11 +108,11 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-800/50">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+    <section id="skills" className={`${layouts.section} ${backgrounds.darkTransparent}`}>
+      <div className={layouts.containerLarge}>
+        <div className={layouts.sectionHeader}>
+          <h2 className={layouts.heading}>
+            <span className={gradients.textPurpleCyan}>
               Skills & Experience
             </span>
           </h2>
@@ -139,7 +141,7 @@ const Skills: React.FC = () => {
                 ))}
               </div>
 
-              <div className="bg-gray-800 p-6 rounded-lg border border-gray-700">
+              <div className={`${cards.base} p-6`}>
                 <h3 className="text-2xl font-bold mb-6 text-center">
                   {skillCategories[activeCategory as keyof typeof skillCategories].title}
                 </h3>
@@ -153,7 +155,7 @@ const Skills: React.FC = () => {
             <div className="space-y-8">
               {experience.map((exp, index) => (
                 <div key={index} className="relative">
-                  <div className="bg-gray-800 p-4 rounded-lg border border-gray-700 hover:border-purple-500/50 transition-all duration-300">
+                  <div className={`${cards.base} p-4 hover:border-purple-500/50 ${transitions.base}`}>
                     <div className="flex mb-2 justify-between">
                       <h4 className="font-semibold text-lg">{exp.title}</h4>
                       <div className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white px-2 py-1 rounded text-sm font-bold">
@@ -172,12 +174,13 @@ const Skills: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-gradient-to-r from-purple-600/10 to-cyan-600/10 rounded-lg p-8 border border-purple-500/20">
+        <div className={cards.gradient}>
+          <div className="p-2">
           <h3 className="text-2xl font-bold mb-4 text-center">Education</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="text-center">
-              <h4 className="text-xl font-semibold text-purple-300">Bachelor of Mathematics & Computer Science</h4>
-              <p className="text-gray-400">Stellenbosch University • 2021-2023</p>
+              <h4 className="text-xl font-semibold text-purple-300">{personal.education.degree}</h4>
+              <p className="text-gray-400">{personal.education.institution} • {personal.education.years}</p>
               <p className="text-sm text-gray-500 mt-2">Focuses on Computer Science with a strong foundation in Mathematics</p>
             </div>
             <div className="text-center">
@@ -185,6 +188,7 @@ const Skills: React.FC = () => {
               <p className="text-gray-400">Self-taught & Online Courses • 2020-Present</p>
               <p className="text-sm text-gray-500 mt-2">Advanced topics in AI/ML, Cloud Architecture, and DevOps</p>
             </div>
+          </div>
           </div>
         </div>
       </div>

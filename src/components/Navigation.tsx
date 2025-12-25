@@ -1,5 +1,8 @@
 import React from 'react';
 import { Menu, X } from 'lucide-react';
+import { navItems, scrollToSection as scrollToSectionUtil } from '../constants/navigation';
+import { personal } from '../constants/portfolioConfig';
+import { gradients } from '../constants/styles';
 
 interface NavigationProps {
   activeSection: string;
@@ -8,19 +11,8 @@ interface NavigationProps {
 const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-  const navItems = [
-    { id: 'hero', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'contact', label: 'Contact' },
-    { id: 'terminal', label: 'Terminal' },
-  ];
-
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToSectionUtil(sectionId);
     setIsMenuOpen(false);
   };
 
@@ -29,8 +21,8 @@ const Navigation: React.FC<NavigationProps> = ({ activeSection }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0">
-            <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
-              Salahuddin
+            <span className={`text-xl font-bold ${gradients.textPurpleCyan}`}>
+              {personal.name}
             </span>
           </div>
 

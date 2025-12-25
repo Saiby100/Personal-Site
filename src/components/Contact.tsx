@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Mail,  MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
+import { Mail, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
+import { social, contact } from '../constants/portfolioConfig';
+import { gradients, layouts, cards, focus, transitions } from '../constants/styles';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -28,14 +30,14 @@ const Contact: React.FC = () => {
     {
       icon: Mail,
       title: 'Email',
-      value: 'salahuddinsaiet.10@gmail.com',
-      link: 'mailto:salahuddinsaiet.10@gmail.com',
+      value: contact.email,
+      link: `mailto:${contact.email}`,
     },
     {
       icon: MapPin,
       title: 'Location',
-      value: 'Cape Town, South Africa',
-      link: 'https://map.google.com/?q=Cape+Town,+South+Africa',
+      value: contact.location,
+      link: contact.mapUrl,
     },
   ];
 
@@ -43,29 +45,29 @@ const Contact: React.FC = () => {
     {
       icon: Github,
       name: 'GitHub',
-      url: 'https://github.com/saiby100',
+      url: social.github,
       color: 'hover:text-gray-400',
     },
     {
       icon: Linkedin,
       name: 'LinkedIn',
-      url: 'www.linkedin.com/in/salahuddin-saiet-2a7190241',
+      url: social.linkedin,
       color: 'hover:text-blue-400',
     },
     {
       icon: Instagram,
       name: 'Instagram',
-      url: 'https://instagram.com/_salah_btw',
+      url: social.instagram,
       color: 'hover:text-pink-400',
     },
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+    <section id="contact" className={layouts.section}>
+      <div className={layouts.containerMedium}>
+        <div className={layouts.sectionHeader}>
+          <h2 className={layouts.heading}>
+            <span className={gradients.textPurpleCyan}>
               Get In Touch
             </span>
           </h2>
@@ -87,7 +89,7 @@ const Contact: React.FC = () => {
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-center space-x-4">
-                  <div className="bg-gradient-to-r from-purple-600 to-cyan-600 p-3 rounded-lg">
+                  <div className={`${gradients.bgPurpleCyan} p-3 rounded-lg`}>
                     <info.icon size={24} className="text-white" />
                   </div>
                   <div>
@@ -116,7 +118,7 @@ const Contact: React.FC = () => {
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`bg-gray-800 p-3 rounded-lg transition-all duration-300 transform hover:scale-110 ${social.color}`}
+                    className={`bg-gray-800 p-3 rounded-lg ${transitions.scaleMedium} ${social.color}`}
                   >
                     <social.icon size={24} />
                   </a>
@@ -124,7 +126,7 @@ const Contact: React.FC = () => {
               </div>
             </div>
 
-            <div className="bg-gradient-to-r from-purple-600/10 to-cyan-600/10 rounded-lg p-6 border border-purple-500/20">
+            <div className={cards.gradient}>
               <h4 className="text-lg font-semibold mb-3 text-purple-300">Available for</h4>
               <ul className="space-y-2 text-gray-300">
                 <li>• Open source collaboration</li>
@@ -133,7 +135,8 @@ const Contact: React.FC = () => {
             </div>
           </div>
 
-          <div className="bg-gray-800 p-8 rounded-lg border border-gray-700">
+          <div className={cards.base}>
+            <div className="p-8">
             <h3 className="text-2xl font-bold mb-6">Send a Message</h3>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -148,7 +151,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                    className={`w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg ${focus.ring} text-white`}
                     placeholder="Your name"
                   />
                 </div>
@@ -163,7 +166,7 @@ const Contact: React.FC = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                    className={`w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg ${focus.ring} text-white`}
                     placeholder="your@email.com"
                   />
                 </div>
@@ -180,7 +183,7 @@ const Contact: React.FC = () => {
                   value={formData.subject}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white"
+                  className={`w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg ${focus.ring} text-white`}
                   placeholder="What's this about?"
                 />
               </div>
@@ -196,19 +199,20 @@ const Contact: React.FC = () => {
                   onChange={handleChange}
                   required
                   rows={6}
-                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent text-white resize-none"
+                  className={`w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg ${focus.ring} text-white resize-none`}
                   placeholder="Tell me about your project or just say hello!"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-purple-600 to-cyan-600 hover:from-purple-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2"
+                className={`w-full ${gradients.bgPurpleCyan} hover:from-purple-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-semibold ${transitions.scaleSmall} flex items-center justify-center space-x-2`}
               >
                 <Send size={20} />
                 <span>Send Message</span>
               </button>
             </form>
+            </div>
           </div>
         </div>
       </div>

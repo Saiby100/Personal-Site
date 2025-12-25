@@ -1,6 +1,7 @@
-- [ ] Centralise links and repeated information
+- [x] Centralise links and repeated information
 - [ ] Add self image somewhere (nav left maybe)
 - [ ] Implement form submission
 - [ ] Deploy to vercel
 - [ ] Make info better (less generic and boring)
 - [ ] Modularise styling (low priority)
+- [ ] Dynamic backgrounds and colour schemes
