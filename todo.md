@@ -1,0 +1,9 @@
+- [x] Centralise links and repeated information
+- [ ] Add self image somewhere (nav left maybe)
+- [x] Implement form submission
+- [ ] Deploy to vercel
+- [ ] Make info better (less generic and boring)
+- [ ] Modularise styling (low priority)
+- [ ] Dynamic backgrounds and colour schemes
+- [ ] Add whatsapp contact functionality
+- [ ] Update terminal information
