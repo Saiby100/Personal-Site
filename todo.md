@@ -6,3 +6,4 @@
 - [ ] Modularise styling (low priority)
 - [ ] Dynamic backgrounds and colour schemes
 - [ ] Add whatsapp contact functionality
+- [ ] Update terminal information
