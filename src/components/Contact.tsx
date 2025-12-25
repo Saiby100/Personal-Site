@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Mail, MapPin, Send, Github, Linkedin, Instagram } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 import { social, contact } from '../constants/portfolioConfig';
 import { gradients, layouts, cards, focus, transitions } from '../constants/styles';
 
@@ -10,13 +11,47 @@ const Contact: React.FC = () => {
     subject: '',
     message: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  useEffect(() => {
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+    if (publicKey) {
+      emailjs.init(publicKey);
+    }
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        throw new Error('EmailJS configuration not found. Please set environment variables.');
+      }
+
+      await emailjs.send(serviceId, templateId, {
+        from_name: formData.name,
+        from_email: formData.email,
+        subject: formData.subject,
+        message: formData.message,
+      }, publicKey);
+
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } catch (error) {
+      console.error('Email submission failed:', error);
+      setSubmitStatus('error');
+      setTimeout(() => setSubmitStatus('idle'), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -206,11 +241,24 @@ const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                className={`w-full ${gradients.bgPurpleCyan} hover:from-purple-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-semibold ${transitions.scaleSmall} flex items-center justify-center space-x-2`}
+                disabled={isSubmitting}
+                className={`w-full ${gradients.bgPurpleCyan} hover:from-purple-700 hover:to-cyan-700 text-white px-6 py-3 rounded-lg font-semibold ${transitions.scaleSmall} flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed`}
               >
                 <Send size={20} />
-                <span>Send Message</span>
+                <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
               </button>
+
+              {submitStatus === 'success' && (
+                <div className="p-4 bg-green-900/30 border border-green-600 rounded-lg text-green-400">
+                  ✓ Message sent successfully! I'll get back to you soon.
+                </div>
+              )}
+
+              {submitStatus === 'error' && (
+                <div className="p-4 bg-red-900/30 border border-red-600 rounded-lg text-red-400">
+                  ✗ Failed to send message. Please try emailing me directly at {contact.email}
+                </div>
+              )}
             </form>
             </div>
           </div>
