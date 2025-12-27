@@ -2,18 +2,6 @@ import { Theme } from '../types/theme';
 
 export const midnightTheme: Theme = {
   name: 'Midnight',
-  bg: {
-    primary: '#0f0f1a',
-    secondary: '#1a1a2e',
-    tertiary: '#25253d',
-    card: '#1a1a2e',
-  },
-  text: {
-    primary: '#f4f4f8',
-    secondary: '#a0a0b8',
-    muted: '#6b6b80',
-  },
-  border: '#2d2d44',
   accent: {
     50: '#faf5ff',
     100: '#f3e8ff',

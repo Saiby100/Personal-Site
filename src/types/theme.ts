@@ -1,20 +1,5 @@
 export interface Theme {
   name: string;
-  // Background colors
-  bg: {
-    primary: string;
-    secondary: string;
-    tertiary: string;
-    card: string;
-  };
-  // Text colors
-  text: {
-    primary: string;
-    secondary: string;
-    muted: string;
-  };
-  // Border
-  border: string;
   // Accent color scale (Tailwind-like 50-950)
   accent: {
     50: string;

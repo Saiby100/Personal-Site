@@ -2,18 +2,6 @@ import { Theme } from '../types/theme';
 
 export const oceanTheme: Theme = {
   name: 'Ocean',
-  bg: {
-    primary: '#0a1628',
-    secondary: '#0f2035',
-    tertiary: '#152a42',
-    card: '#0f2035',
-  },
-  text: {
-    primary: '#e8f4f8',
-    secondary: '#8cb4c5',
-    muted: '#5a8a9d',
-  },
-  border: '#1e3a50',
   accent: {
     50: '#ecfeff',
     100: '#cffafe',

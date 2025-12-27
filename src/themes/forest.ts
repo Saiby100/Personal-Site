@@ -2,18 +2,6 @@ import { Theme } from '../types/theme';
 
 export const forestTheme: Theme = {
   name: 'Forest',
-  bg: {
-    primary: '#0c1410',
-    secondary: '#121d17',
-    tertiary: '#18261e',
-    card: '#121d17',
-  },
-  text: {
-    primary: '#e8f5ec',
-    secondary: '#8cb8a0',
-    muted: '#5a8a70',
-  },
-  border: '#1e3a28',
   accent: {
     50: '#ecfdf5',
     100: '#d1fae5',

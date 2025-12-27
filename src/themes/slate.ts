@@ -2,18 +2,6 @@ import { Theme } from '../types/theme';
 
 export const slateTheme: Theme = {
   name: 'Slate',
-  bg: {
-    primary: '#0f1419',
-    secondary: '#161d26',
-    tertiary: '#1e2733',
-    card: '#161d26',
-  },
-  text: {
-    primary: '#f0f4f8',
-    secondary: '#94a3b8',
-    muted: '#64748b',
-  },
-  border: '#2a3544',
   accent: {
     50: '#eef2ff',
     100: '#e0e7ff',

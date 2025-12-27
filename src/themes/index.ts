@@ -5,6 +5,9 @@ import { forestTheme } from './forest';
 import { roseTheme } from './rose';
 import { slateTheme } from './slate';
 
+export { baseModes, darkMode, lightMode } from './base';
+export type { BaseTheme, ModeName } from './base';
+
 export const themes = {
   midnight: midnightTheme,
   ocean: oceanTheme,

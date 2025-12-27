@@ -2,18 +2,6 @@ import { Theme } from '../types/theme';
 
 export const roseTheme: Theme = {
   name: 'Rose',
-  bg: {
-    primary: '#18101a',
-    secondary: '#221622',
-    tertiary: '#2e1c2c',
-    card: '#221622',
-  },
-  text: {
-    primary: '#faf5f7',
-    secondary: '#c8a0b0',
-    muted: '#8a6878',
-  },
-  border: '#3d2838',
   accent: {
     50: '#fff1f2',
     100: '#ffe4e6',

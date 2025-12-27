@@ -3,11 +3,10 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.css';
 import './styles/theme.css';
-import { getRandomTheme, applyThemeByName } from './constants/theme';
+import { applyRandomTheme } from './constants/theme';
 
-// Apply random theme on page load
-// const randomTheme = getRandomTheme();
-applyThemeByName('forest');
+// Apply random theme and mode on page load
+applyRandomTheme();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

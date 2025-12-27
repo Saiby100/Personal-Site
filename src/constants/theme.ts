@@ -1,31 +1,41 @@
 import { Theme } from "../types/theme";
-import { themes } from "../themes";
+import { themes, baseModes, BaseTheme, ModeName } from "../themes";
 
 export type ThemeName = keyof typeof themes;
 
 export const themeNames = Object.keys(themes) as ThemeName[];
+export const modeNames: ModeName[] = ['dark', 'light'];
 
 export const getRandomTheme = (): ThemeName => {
   const randomIndex = Math.floor(Math.random() * themeNames.length);
   return themeNames[randomIndex];
 };
 
-export const applyTheme = (theme: Theme) => {
+export const getRandomMode = (): ModeName => {
+  const randomIndex = Math.floor(Math.random() * modeNames.length);
+  return modeNames[randomIndex];
+};
+
+export const applyBaseMode = (mode: BaseTheme) => {
   const root = document.documentElement;
 
   // Background
-  root.style.setProperty('--bg-primary', theme.bg.primary);
-  root.style.setProperty('--bg-secondary', theme.bg.secondary);
-  root.style.setProperty('--bg-tertiary', theme.bg.tertiary);
-  root.style.setProperty('--bg-card', theme.bg.card);
+  root.style.setProperty('--bg-primary', mode.bg.primary);
+  root.style.setProperty('--bg-secondary', mode.bg.secondary);
+  root.style.setProperty('--bg-tertiary', mode.bg.tertiary);
+  root.style.setProperty('--bg-card', mode.bg.card);
 
   // Text
-  root.style.setProperty('--text-primary', theme.text.primary);
-  root.style.setProperty('--text-secondary', theme.text.secondary);
-  root.style.setProperty('--text-muted', theme.text.muted);
+  root.style.setProperty('--text-primary', mode.text.primary);
+  root.style.setProperty('--text-secondary', mode.text.secondary);
+  root.style.setProperty('--text-muted', mode.text.muted);
 
   // Border
-  root.style.setProperty('--border-color', theme.border);
+  root.style.setProperty('--border-color', mode.border);
+};
+
+export const applyAccentTheme = (theme: Theme) => {
+  const root = document.documentElement;
 
   // Accent scale
   root.style.setProperty('--accent-50', theme.accent[50]);
@@ -46,4 +56,14 @@ export const applyTheme = (theme: Theme) => {
   root.style.setProperty('--accent-alt-600', theme.accentAlt[600]);
 };
 
-export const applyThemeByName = (name: ThemeName) => applyTheme(themes[name]);
+export const applyTheme = (themeName: ThemeName, modeName: ModeName) => {
+  applyBaseMode(baseModes[modeName]);
+  applyAccentTheme(themes[themeName]);
+};
+
+export const applyRandomTheme = () => {
+  const themeName = getRandomTheme();
+  const modeName = getRandomMode();
+  applyTheme(themeName, modeName);
+  return { themeName, modeName };
+};
