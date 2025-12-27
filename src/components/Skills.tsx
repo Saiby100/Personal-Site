@@ -95,7 +95,7 @@ const Skills: React.FC = () => {
       year: 'Jul 2023 - Oct 2023',
       title: 'CS Teaching Assistant',
       company: 'Stellenbosch University',
-      description: 'I Attended weekly practical sessions to assist students with solving python coding problems. I Invigilated during exams and handled marking project submissions and demos.',
+      description: 'I attended weekly practical sessions to assist students with solving python coding problems. I invigilated during exams and handled marking project submissions and demos.',
     },
   ];
 
