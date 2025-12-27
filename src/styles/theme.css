@@ -1,17 +1,17 @@
 :root {
-  /* Background colors - defaults to midnight theme */
-  --bg-primary: #0f0f1a;
-  --bg-secondary: #1a1a2e;
-  --bg-tertiary: #25253d;
-  --bg-card: #1a1a2e;
+  /* Background colors - defaults to dark mode */
+  --bg-primary: #0f1012;
+  --bg-secondary: #16181a;
+  --bg-tertiary: #1e2023;
+  --bg-card: #16181a;
 
   /* Text colors */
-  --text-primary: #f4f4f8;
-  --text-secondary: #a0a0b8;
-  --text-muted: #6b6b80;
+  --text-primary: #f0f2f4;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
 
   /* Border */
-  --border-color: #2d2d44;
+  --border-color: #2a2d32;
 
   /* Accent color scale (purple) */
   --accent-50: #faf5ff;
