@@ -230,7 +230,6 @@ Features a custom terminal emulator for fun interactions!`,
                 onChange={(e) => setInput(e.target.value)}
                 className="flex-1 bg-transparent text-white outline-none caret-green-400"
                 placeholder="Type a command..."
-                autoFocus
               />
             </form>
           </div>
