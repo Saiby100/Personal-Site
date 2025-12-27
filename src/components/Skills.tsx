@@ -69,7 +69,7 @@ const Skills: React.FC = () => {
         { name: 'AI Code Generation', color: 'from-indigo-500 to-purple-500' },
         { name: 'GitHub Copilot', color: 'from-emerald-500 to-cyan-500' },
         { name: 'Claude Code', color: 'from-orange-500 to-amber-500' },
-        { name: 'Bolt', color: 'from-lime-500 to-green-500' },
+        { name: 'Bolt', color: 'from-yellow-400 to-orange-400' },
       ],
     },
     cloud: {
