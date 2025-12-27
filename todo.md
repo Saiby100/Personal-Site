@@ -7,4 +7,4 @@
 - [x] Modularise styling (low priority)
 - [ ] Dynamic backgrounds and colour schemes
 - [ ] Add whatsapp contact functionality
-- [ ] Update terminal information
+- [ ] Hover on name and profile image

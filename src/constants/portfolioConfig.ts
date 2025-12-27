@@ -17,7 +17,6 @@ export interface ProfessionalInfo {
   name: string;
   title: string;
   shortTitle: string;
-  company: string;
   education: {
     institution: string;
     years: string;
@@ -41,7 +40,6 @@ export const portfolioConfig: PortfolioConfig = {
     name: 'Salahuddin',
     title: 'Software Developer',
     shortTitle: 'developer',
-    company: 'Lowdefy',
     education: {
       institution: 'Stellenbosch University',
       years: '2021-2023',
