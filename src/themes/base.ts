@@ -22,8 +22,8 @@ export const darkMode: BaseTheme = {
   },
   text: {
     primary: '#f0f2f4',
-    secondary: '#9ca3af',
-    muted: '#6b7280',
+    secondary: '#d1d5db',
+    muted: '#9ca3af',
   },
   border: '#2a2d32',
 };
@@ -37,8 +37,8 @@ export const lightMode: BaseTheme = {
   },
   text: {
     primary: '#111827',
-    secondary: '#4b5563',
-    muted: '#9ca3af',
+    secondary: '#374151',
+    muted: '#6b7280',
   },
   border: '#e5e7eb',
 };
