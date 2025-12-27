@@ -16,6 +16,11 @@ export const getRandomMode = (): ModeName => {
   return modeNames[randomIndex];
 };
 
+export const getSystemMode = (): ModeName => {
+  if (typeof window === 'undefined') return 'dark';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+};
+
 export const applyBaseMode = (mode: BaseTheme) => {
   const root = document.documentElement;
 
@@ -63,7 +68,7 @@ export const applyTheme = (themeName: ThemeName, modeName: ModeName) => {
 
 export const applyRandomTheme = () => {
   const themeName = getRandomTheme();
-  const modeName = getRandomMode();
+  const modeName = getSystemMode();
   applyTheme(themeName, modeName);
   return { themeName, modeName };
 };

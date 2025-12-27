@@ -31,3 +31,27 @@
   --accent-alt-500: #06b6d4;
   --accent-alt-600: #0891b2;
 }
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-600);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-500);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-color: var(--accent-600) var(--bg-primary);
+  scrollbar-width: thin;
+}
