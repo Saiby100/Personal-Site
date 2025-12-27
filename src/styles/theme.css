@@ -54,4 +54,9 @@
 html {
   scrollbar-color: var(--accent-600) var(--bg-primary);
   scrollbar-width: thin;
+  background-color: var(--bg-secondary);
+}
+
+body {
+  background-color: var(--bg-secondary);
 }
