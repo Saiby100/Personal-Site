@@ -87,8 +87,14 @@ const Skills: React.FC = () => {
     {
       year: '2024 - Present',
       title: personal.title,
-      company: personal.company,
+      company: 'Lowdefy',
       description: 'Started my professional journey, learning and contributing to various projects.',
+    },
+    {
+      year: 'Jul 2023 - Oct 2023',
+      title: 'CS Teaching Assistant',
+      company: 'Stellenbosch University',
+      description: 'I Attended weekly practical sessions to assist students with solving python coding problems. I Invigilated during exams and handled marking project submissions and demos.',
     },
   ];
 
