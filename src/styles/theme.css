@@ -1,0 +1,62 @@
+:root {
+  /* Background colors - defaults to dark mode */
+  --bg-primary: #0f1012;
+  --bg-secondary: #16181a;
+  --bg-tertiary: #1e2023;
+  --bg-card: #16181a;
+
+  /* Text colors */
+  --text-primary: #f0f2f4;
+  --text-secondary: #d1d5db;
+  --text-muted: #6b7280;
+
+  /* Border */
+  --border-color: #2a2d32;
+
+  /* Accent color scale (purple) */
+  --accent-50: #faf5ff;
+  --accent-100: #f3e8ff;
+  --accent-200: #e9d5ff;
+  --accent-300: #d8b4fe;
+  --accent-400: #c084fc;
+  --accent-500: #a855f7;
+  --accent-600: #9333ea;
+  --accent-700: #7e22ce;
+  --accent-800: #6b21a8;
+  --accent-900: #581c87;
+  --accent-950: #3b0764;
+
+  /* Secondary accent (cyan) for gradients */
+  --accent-alt-400: #22d3ee;
+  --accent-alt-500: #06b6d4;
+  --accent-alt-600: #0891b2;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-600);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-500);
+}
+
+/* Firefox scrollbar */
+html {
+  scrollbar-color: var(--accent-600) var(--bg-primary);
+  scrollbar-width: thin;
+  background-color: var(--bg-secondary);
+}
+
+body {
+  background-color: var(--bg-secondary);
+}

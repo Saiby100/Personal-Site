@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Code, Smartphone, Server, PenTool as Tool, Database, Cloud, Brain } from 'lucide-react';
 import { personal } from '../constants/portfolioConfig';
-import { gradients, layouts, cards, transitions, backgrounds } from '../constants/styles';
+import { gradients, layouts, cards, transitions, backgrounds, text, accent, accentAlt } from '../constants/styles';
 
 const Skills: React.FC = () => {
   const [activeCategory, setActiveCategory] = useState('frontend');
 
+  // NOTE: Skill colors are intentionally hardcoded - they represent technology brand colors
   const skillCategories = {
     frontend: {
       icon: Code,
@@ -68,7 +69,7 @@ const Skills: React.FC = () => {
         { name: 'AI Code Generation', color: 'from-indigo-500 to-purple-500' },
         { name: 'GitHub Copilot', color: 'from-emerald-500 to-cyan-500' },
         { name: 'Claude Code', color: 'from-orange-500 to-amber-500' },
-        { name: 'Bolt', color: 'from-lime-500 to-green-500' },
+        { name: 'Bolt', color: 'from-yellow-400 to-orange-400' },
       ],
     },
     cloud: {
@@ -85,7 +86,7 @@ const Skills: React.FC = () => {
 
   const experience = [
     {
-      year: '2024 - Present',
+      year: 'March 2024 - Present',
       title: personal.title,
       company: 'Lowdefy',
       description: 'Started my professional journey, learning and contributing to various projects.',
@@ -94,7 +95,7 @@ const Skills: React.FC = () => {
       year: 'Jul 2023 - Oct 2023',
       title: 'CS Teaching Assistant',
       company: 'Stellenbosch University',
-      description: 'I Attended weekly practical sessions to assist students with solving python coding problems. I Invigilated during exams and handled marking project submissions and demos.',
+      description: 'I attended weekly practical sessions to assist students with solving python coding problems. I invigilated during exams and handled marking project submissions and demos.',
     },
   ];
 
@@ -114,15 +115,15 @@ const Skills: React.FC = () => {
   };
 
   return (
-    <section id="skills" className={`${layouts.section} ${backgrounds.darkTransparent}`}>
+    <section id="skills" className={`${layouts.section} ${backgrounds.secondary}`}>
       <div className={layouts.containerLarge}>
         <div className={layouts.sectionHeader}>
           <h2 className={layouts.heading}>
-            <span className={gradients.textPurpleCyan}>
+            <span className={gradients.textAccent}>
               Skills & Experience
             </span>
           </h2>
-          <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+          <p className={`text-xl ${text.muted} max-w-3xl mx-auto`}>
             A comprehensive look at my technical expertise and professional journey
           </p>
         </div>
@@ -137,8 +138,8 @@ const Skills: React.FC = () => {
                     onClick={() => setActiveCategory(key)}
                     className={`flex items-center px-4 py-2 rounded-lg transition-all duration-300 ${
                       activeCategory === key
-                        ? 'bg-purple-600 text-white'
-                        : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
+                        ? `${accent.bg[600]} text-white`
+                        : `${backgrounds.tertiary} ${text.secondary} hover:bg-[var(--accent-700)]`
                     }`}
                   >
                     <category.icon size={18} className="mr-2" />
@@ -161,18 +162,18 @@ const Skills: React.FC = () => {
             <div className="space-y-8">
               {experience.map((exp, index) => (
                 <div key={index} className="relative">
-                  <div className={`${cards.base} p-4 hover:border-purple-500/50 ${transitions.base}`}>
+                  <div className={`${cards.interactive} p-4`}>
                     <div className="flex mb-2 justify-between">
                       <h4 className="font-semibold text-lg">{exp.title}</h4>
-                      <div className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white px-2 py-1 rounded text-sm font-bold">
+                      <div className={`${gradients.bgAccent} text-white px-2 py-1 rounded text-sm font-bold`}>
                         {exp.year}
                       </div>
                     </div>
-                    <p className="text-purple-400 font-medium mb-2">{exp.company}</p>
-                    <p className="text-gray-400 text-sm">{exp.description}</p>
+                    <p className={`${accent.text[400]} font-medium mb-2`}>{exp.company}</p>
+                    <p className={`${text.muted} text-sm`}>{exp.description}</p>
                   </div>
                   {index < experience.length - 1 && (
-                    <div className="absolute left-8 w-0.5 h-6 bg-gradient-to-b from-purple-500 to-cyan-500 m-1"></div>
+                    <div className={`absolute left-8 w-0.5 h-6 ${gradients.bgAccentVertical} m-1`}></div>
                   )}
                 </div>
               ))}
@@ -185,14 +186,14 @@ const Skills: React.FC = () => {
           <h3 className="text-2xl font-bold mb-4 text-center">Education</h3>
           <div className="grid md:grid-cols-2 gap-6">
             <div className="text-center">
-              <h4 className="text-xl font-semibold text-purple-300">{personal.education.degree}</h4>
-              <p className="text-gray-400">{personal.education.institution} • {personal.education.years}</p>
-              <p className="text-sm text-gray-500 mt-2">Focuses on Computer Science with a strong foundation in Mathematics</p>
+              <h4 className={`text-xl font-semibold ${accent.text[300]}`}>{personal.education.degree}</h4>
+              <p className={text.muted}>{personal.education.institution} &bull; {personal.education.years}</p>
+              <p className={`text-sm ${text.muted} mt-2`}>Focuses on Computer Science with a strong foundation in Mathematics</p>
             </div>
             <div className="text-center">
-              <h4 className="text-xl font-semibold text-cyan-300">Continuous Learning</h4>
-              <p className="text-gray-400">Self-taught & Online Courses • 2020-Present</p>
-              <p className="text-sm text-gray-500 mt-2">Advanced topics in AI/ML, Cloud Architecture, and DevOps</p>
+              <h4 className={`text-xl font-semibold ${accentAlt.text[400]}`}>Continuous Learning</h4>
+              <p className={text.muted}>Self-taught & Online Courses &bull; 2020-Present</p>
+              <p className={`text-sm ${text.muted} mt-2`}>Advanced topics in AI/ML, Cloud Architecture, and DevOps</p>
             </div>
           </div>
           </div>

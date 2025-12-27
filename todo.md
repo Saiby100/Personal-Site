@@ -5,6 +5,6 @@
 - [ ] Integrate an LLM
 - [ ] Make info better (less generic and boring)
 - [x] Modularise styling (low priority)
-- [ ] Dynamic backgrounds and colour schemes
+- [x] Dynamic backgrounds and colour schemes
 - [ ] Add whatsapp contact functionality
 - [ ] Hover on name and profile image
