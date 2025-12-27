@@ -86,7 +86,7 @@ const Skills: React.FC = () => {
 
   const experience = [
     {
-      year: '2024 - Present',
+      year: 'March 2024 - Present',
       title: personal.title,
       company: 'Lowdefy',
       description: 'Started my professional journey, learning and contributing to various projects.',
