@@ -7,6 +7,7 @@ import {
   lowdefy,
   profile,
   project,
+  timeline,
 } from '../../data/site';
 
 interface Props {
@@ -14,6 +15,8 @@ interface Props {
   onToggle: () => void;
   onGoDetail: (anchor?: string) => void;
 }
+
+const degree = education[1];
 
 export default function GlanceView({ exitAnimation, onToggle, onGoDetail }: Props) {
   return (
@@ -65,45 +68,26 @@ export default function GlanceView({ exitAnimation, onToggle, onGoDetail }: Prop
         <p>{profile.summaryShort}</p>
       </button>
 
-      <aside className="glass g-skills">
-        <h2 className="eyebrow">Languages &amp; tools</h2>
-        <div className="g-chips">
-          {glanceSkills.map((skill) => (
-            <span key={skill}>{skill}</span>
-          ))}
-        </div>
-
-        <div className="g-divider" />
-        <h2 className="eyebrow">Practices</h2>
-        <p className="g-practices" style={{ margin: 0 }}>
-          {glancePractices}
-        </p>
-
-        <div className="g-divider g-divider--push" />
-        <h2 className="eyebrow">Earlier</h2>
-        {[...education].reverse().map((item) => (
-          <div className="g-earlier" key={item.title}>
-            <strong>{item.glanceTitle}</strong>
-            <span>{item.glanceMeta}</span>
+      <aside className="glass g-timeline">
+        <h2 className="eyebrow">Timeline</h2>
+        {timeline.map((item) => (
+          <div className="g-tl-item" key={item.title}>
+            <span className="g-tl-dot" data-current={item.current} aria-hidden="true" />
+            <div className="g-tl-body">
+              <strong>{item.title}</strong>
+              <span className="g-tl-org">{item.org}</span>
+              <span className="g-tl-period">{item.period}</span>
+            </div>
           </div>
         ))}
-      </aside>
 
-      <button
-        type="button"
-        className="glass card-button g-project"
-        onClick={() => onGoDetail('project')}
-      >
-        <MediaSlot id="projectThumb" />
-        <div className="g-project-body">
-          <div className="g-project-title">
-            <span className="eyebrow">Project</span>
-            <h3>{project.name}</h3>
-          </div>
-          <p>{project.glanceBlurb}</p>
-          <span className="g-project-stack">{project.stack}</span>
+        <div className="g-divider g-divider--push" />
+        <h2 className="eyebrow">Education</h2>
+        <div className="g-edu">
+          <strong>{degree.title}</strong>
+          <span>{degree.glanceMeta}</span>
         </div>
-      </button>
+      </aside>
 
       <button
         type="button"
@@ -131,13 +115,40 @@ export default function GlanceView({ exitAnimation, onToggle, onGoDetail }: Prop
         </div>
       </button>
 
+      <button
+        type="button"
+        className="glass card-button g-project"
+        onClick={() => onGoDetail('project')}
+      >
+        <MediaSlot id="projectThumb" />
+        <div className="g-project-body">
+          <div className="g-project-title">
+            <span className="eyebrow">Project</span>
+            <h3>{project.name}</h3>
+          </div>
+          <p>{project.glanceBlurb}</p>
+          <span className="g-project-stack">{project.stack}</span>
+        </div>
+      </button>
+
+      <aside className="glass g-skills">
+        <h2 className="eyebrow">Languages &amp; tools</h2>
+        <div className="g-chips">
+          {glanceSkills.map((skill) => (
+            <span key={skill}>{skill}</span>
+          ))}
+        </div>
+      </aside>
+
       <section className="glass g-contact">
+        <h2 className="eyebrow">Practices</h2>
+        <p className="g-practices" style={{ margin: 0 }}>
+          {glancePractices}
+        </p>
+        <div className="g-divider g-divider--push" />
         <p className="g-contact-lead" style={{ margin: 0 }}>
           {profile.availability}
         </p>
-        <div className="g-contact-links">
-          <a href={`mailto:${links.email}`}>{links.email}</a>
-        </div>
         <button type="button" className="g-cta" onClick={onToggle}>
           Read the full detail →
         </button>

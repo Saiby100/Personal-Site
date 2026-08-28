@@ -193,6 +193,17 @@ export const education = [
   },
 ];
 
+/** Right-hand glance card. Filled dot = the current role. */
+export const timeline = [
+  { title: 'Software Developer', org: 'Lowdefy', period: lowdefy.period, current: true },
+  {
+    title: education[0].title,
+    org: 'Stellenbosch University',
+    period: 'July – October 2023',
+    current: false,
+  },
+];
+
 export type MediaId = 'portrait' | 'projectThumb' | 'summaryWide' | 'workflowShot' | 'parserShot';
 
 /**
