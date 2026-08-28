@@ -5,7 +5,4 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   cacheDir: 'node_modules/.vite',
   plugins: [react()],
-  optimizeDeps: {
-    exclude: ['lucide-react'],
-  },
 });
