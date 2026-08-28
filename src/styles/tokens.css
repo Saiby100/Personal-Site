@@ -15,8 +15,8 @@
   --on-sage: #12201a;
 
   /* Glass material */
-  --gblur: 6px;
-  --gtint: 0.18;
+  --gblur: 2px;
+  --gtint: 0.34;
   --grad: 10px;
 
   --hairline: rgba(255, 255, 255, 0.11);
