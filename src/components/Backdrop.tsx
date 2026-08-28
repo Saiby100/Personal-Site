@@ -1,4 +1,4 @@
-import type { Mode } from '../hooks/useMode';
+import type { Mode } from '@/hooks/useMode';
 
 /** Full-bleed wallpaper plus a scrim that deepens behind the detail page. */
 export default function Backdrop({ mode }: { mode: Mode }) {

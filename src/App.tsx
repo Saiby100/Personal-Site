@@ -1,8 +1,8 @@
 import { Analytics } from '@vercel/analytics/react';
-import Backdrop from './components/Backdrop';
-import GlanceView from './components/glance/GlanceView';
-import DetailView from './components/detail/DetailView';
-import { useMode } from './hooks/useMode';
+import Backdrop from '@/components/Backdrop';
+import GlanceView from '@/components/glance/GlanceView';
+import DetailView from '@/components/detail/DetailView';
+import { useMode } from '@/hooks/useMode';
 
 export default function App() {
   const { mode, switchTo, toggle, exitAnimation } = useMode();

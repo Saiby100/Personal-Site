@@ -6,7 +6,7 @@ export type Mode = 'glance' | 'detail';
 const EXIT_MS = 340;
 
 /** Anchors that only exist inside the detail view. */
-const DETAIL_ANCHORS = ['detail', 'summary', 'lowdefy', 'project', 'earlier', 'skills', 'cv'];
+const DETAIL_ANCHORS = ['detail', 'summary', 'role', 'project', 'earlier', 'skills'];
 
 const prefersReducedMotion = () =>
   typeof window !== 'undefined' &&

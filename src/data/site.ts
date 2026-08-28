@@ -107,7 +107,7 @@ export interface Highlight {
   lead?: boolean;
 }
 
-export const lowdefy = {
+export const currentRole: { heading: string; period: string; highlights: Highlight[] } = {
   heading: 'Lowdefy — Software Developer',
   period: 'March 2024 → present',
   highlights: [
@@ -161,7 +161,7 @@ export const lowdefy = {
       metrics: [],
       glanceMetrics: ['ongoing'],
     },
-  ] as Highlight[],
+  ],
 };
 
 export const project = {
@@ -195,7 +195,7 @@ export const education = [
 
 /** Right-hand glance card. Filled dot = the current role. */
 export const timeline = [
-  { title: 'Software Developer', org: 'Lowdefy', period: lowdefy.period, current: true },
+  { title: 'Software Developer', org: 'Lowdefy', period: currentRole.period, current: true },
   {
     title: education[0].title,
     org: 'Stellenbosch University',
@@ -220,7 +220,7 @@ export const media: Record<MediaId, { caption: string; src: string | null; alt?:
 
 export const tocItems = [
   { href: '#summary', label: 'Summary' },
-  { href: '#lowdefy', label: 'Lowdefy, 2024→' },
+  { href: '#role', label: 'Lowdefy, 2024→' },
   { href: '#project', label: 'AI Reader' },
   { href: '#earlier', label: 'Teaching & education' },
   { href: '#skills', label: 'Skills' },

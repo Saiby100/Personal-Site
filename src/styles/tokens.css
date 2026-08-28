@@ -10,71 +10,48 @@
   --ink-42: rgba(241, 237, 225, 0.42);
   --sage: #b4cdab;
   --sage-bright: #cfe3c6;
+  --sage-92: rgba(180, 205, 171, 0.92);
   --tan: #e3c293;
   --tan-bg: rgba(227, 194, 147, 0.14);
   --on-sage: #12201a;
 
-  /* Glass material */
-  --gblur: 2px;
-  --gtint: 0.34;
-  --grad: 10px;
+  /* Glass material. Two levels only: 1 = glance cards, 2 = detail panels.
+     Radius is a separate axis, so a level-2 panel can be md or lg. */
+  --surf-1-rgb: 14, 24, 18;
+  --surf-1-tint: 0.18;
+  --surf-1-blur: 6px;
+  --surf-1-sat: 1.4;
+  --surf-1-hair: 0.11;
+
+  --surf-2-rgb: 16, 28, 21;
+  --surf-2-tint: 0.3;
+  --surf-2-blur: 14px;
+  --surf-2-sat: 1.7;
+  --surf-2-hair: 0.14;
+
+  /* Radius scale */
+  --rad-sm: 10px;
+  --rad-md: 14px;
+  --rad-lg: 18px;
+  --rad-pill: 999px;
 
   --hairline: rgba(255, 255, 255, 0.11);
   --hairline-strong: rgba(255, 255, 255, 0.14);
+  /* --rule separates content inside a card; --rule-strong separates sections. */
   --rule: rgba(255, 255, 255, 0.1);
   --rule-strong: rgba(255, 255, 255, 0.13);
 
   /* Type */
-  --serif: Newsreader, Georgia, "Times New Roman", serif;
-  --sans: Karla, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: Newsreader, Georgia, 'Times New Roman', serif;
+  --sans: Karla, system-ui, -apple-system, 'Segoe UI', sans-serif;
   --mono: ui-monospace, Menlo, Consolas, monospace;
+
+  /* Serif display scale, set per context on .heading */
+  --h-sm: 15px;
+  --h-md: 19px;
+  --h-lg: 22px;
+  --h-xl: 28px;
 
   /* Layout */
   --sticky-offset: 96px;
-}
-
-/* Frosted panel used by the glance cards. */
-.glass {
-  background: rgba(14, 24, 18, var(--gtint));
-  backdrop-filter: blur(var(--gblur)) saturate(1.4);
-  -webkit-backdrop-filter: blur(var(--gblur)) saturate(1.4);
-  border: 1px solid var(--hairline);
-  border-radius: var(--grad);
-}
-
-/* Heavier panel used by the detail page, which sits over a dimmer scrim. */
-.glass-deep {
-  background: rgba(16, 28, 21, calc(var(--gtint) + 0.12));
-  backdrop-filter: blur(calc(var(--gblur) + 8px)) saturate(1.7);
-  -webkit-backdrop-filter: blur(calc(var(--gblur) + 8px)) saturate(1.7);
-  border: 1px solid var(--hairline-strong);
-  border-radius: calc(var(--grad) + 8px);
-  box-shadow:
-    0 18px 42px rgba(0, 0, 0, 0.34),
-    inset 0 1px 0 rgba(255, 255, 255, 0.15);
-}
-
-/* Diagonal hatch fill for image placeholders. */
-.hatch {
-  background: repeating-linear-gradient(
-    101deg,
-    rgba(241, 237, 225, 0.1) 0 1px,
-    rgba(241, 237, 225, 0.03) 1px 10px
-  );
-}
-
-.eyebrow {
-  font: 500 9.5px/1 var(--sans);
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--sage);
-  margin: 0;
-}
-
-.metric {
-  font: 10px/1 var(--mono);
-  color: var(--tan);
-  background: var(--tan-bg);
-  padding: 4px 6px;
-  border-radius: 3px;
 }
