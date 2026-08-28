@@ -62,3 +62,6 @@ Thumbs.db
 .pnp.*
 .vercel
 .env*.local
+
+# Design mockups (local only)
+design/
