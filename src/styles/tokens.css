@@ -3,13 +3,13 @@
   --bg: #0e1712;
   --ink: #f1ede1;
   /* Muted inks. The suffix is the alpha; they run higher than a dark-tinted
-     glass needed, because the white surfaces sit closer to the text. */
+     glass needed, because the white surfaces sit closer to the text. 75 is the
+     floor for anything a reader has to read: below it the ratio drops under
+     4.5:1 where a card sits over the lit foliage. */
   --ink-80: rgba(241, 237, 225, 0.8);
   --ink-75: rgba(241, 237, 225, 0.75);
   --ink-68: rgba(241, 237, 225, 0.68);
   --ink-62: rgba(241, 237, 225, 0.62);
-  --ink-56: rgba(241, 237, 225, 0.56);
-  --ink-52: rgba(241, 237, 225, 0.52);
   /* Sampled from wallpaper.jpg: the lit edges of the foliage behind the owl.
      --tan is the bird's own plumage — the one warm note in an otherwise green
      photo, which is why the metric chips still use it. */
@@ -61,12 +61,12 @@
 
   /* Type scale. Everything is rem so it tracks the fluid root set in base.css;
      the comments give the size at the 16px root, which is what ships at <=1440px. */
-  --fs-3xs: 0.594rem; /* 9.5px */
-  --fs-2xs: 0.656rem; /* 10.5px */
-  --fs-xs: 0.719rem; /* 11.5px */
-  --fs-sm: 0.781rem; /* 12.5px */
-  --fs-md: 0.875rem; /* 14px */
-  --fs-lg: 0.938rem; /* 15px */
+  --fs-3xs: 0.688rem; /* 11px */
+  --fs-2xs: 0.75rem; /* 12px */
+  --fs-xs: 0.813rem; /* 13px */
+  --fs-sm: 0.875rem; /* 14px */
+  --fs-md: 0.938rem; /* 15px */
+  --fs-lg: 1rem; /* 16px */
 
   /* Serif display scale, set per context on .heading */
   --h-sm: 0.938rem; /* 15px */

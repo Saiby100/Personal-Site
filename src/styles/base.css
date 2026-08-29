@@ -114,17 +114,32 @@ button {
   transform: scale(1.07);
 }
 
-/* Only the photo needs taming, so the scrim rides with it. */
+/* Only the photo needs taming, so the scrim rides with it. Two layers:
+   a flat floor that is always on, and a radial that deepens for detail.
+
+   The floor is a contrast fix rather than a mood one. The wallpaper is dark
+   overall (90th-percentile luminance 55/255) but its lit foliage runs to 112,
+   and the glass is a 6% white tint that carries the photo through almost
+   unchanged. Without the floor, a card that lands on a lit patch drops the
+   text on it to ~2.8:1; at 0.38 body copy holds 6.6:1 over the photo's 90th
+   percentile and 4.5:1 over its single brightest patch. Pushing it further
+   would clear that last patch too, but only by burying the wallpaper. */
+.scrim-floor {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(8, 16, 11, 0.38);
+}
+
 .scrim {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background: radial-gradient(
-    120% 100% at 25% 0%,
-    rgba(8, 16, 11, 0.18) 0%,
-    rgba(8, 16, 11, 0.6) 100%
-  );
+  /* Starts at transparent rather than 0.18: the floor below now carries that
+     baseline, so this layer only has to add the shape. */
+  background: radial-gradient(120% 100% at 25% 0%, transparent 0%, rgba(8, 16, 11, 0.4) 100%);
   opacity: 0;
   transition: opacity 0.9s ease;
 }
@@ -143,6 +158,12 @@ button {
    the grid below falls back to sizing itself from its content and overflows
    the viewport. */
 .shell[data-mode='glance'] {
+  /* The floor has to stay a definite height: with an indefinite one the grid's
+     fr rows resolve against max-content and the page doubles in height. 49.375
+     is the measured minimum that clears the grid's own row minimums with the
+     larger type — on a viewport shorter than that the page scrolls, which is
+     the honest outcome. What it must never do is sit *below* the minimum, which
+     silently clips the last row of skill chips inside the card. */
   height: max(100vh, 49.375rem);
   display: flex;
   flex-direction: column;

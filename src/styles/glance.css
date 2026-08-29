@@ -7,7 +7,9 @@
   padding: 0 1.125rem 1.125rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: minmax(12.5rem, 1.8fr) minmax(15.625rem, 1.2fr) minmax(12rem, 2fr);
+  /* The third row's minimum holds the skills card's full chip set (measured at
+     215px with the larger type); at the old 12rem it clipped the last group. */
+  grid-template-rows: minmax(12.5rem, 1.8fr) minmax(15.625rem, 1.2fr) minmax(13.75rem, 2fr);
   gap: 0.625rem;
 }
 
@@ -46,7 +48,7 @@
 }
 .g-summary p {
   margin: 0;
-  font: 300 clamp(0.938rem, 2.1vh, 1.125rem) / 1.45 var(--serif);
+  font: 300 clamp(1rem, 2.1vh, 1.188rem) / 1.45 var(--serif);
   color: var(--ink);
   text-wrap: pretty;
 }
@@ -135,7 +137,7 @@
 }
 .g-project p {
   margin: 0;
-  font: 400 0.75rem/1.5 var(--sans);
+  font: 400 var(--fs-sm) / 1.5 var(--sans);
   color: var(--ink-80);
 }
 .g-project-foot {
@@ -146,14 +148,14 @@
   margin-top: auto;
 }
 .g-project-stack {
-  font-size: var(--fs-3xs);
-  color: var(--ink-52);
+  font-size: var(--fs-2xs);
+  color: var(--ink-75);
   min-width: 0;
 }
 .g-project .pill {
   align-self: auto;
   flex: none;
-  font-size: 0.688rem;
+  font-size: var(--fs-2xs);
   padding: 0.438rem 0.75rem;
 }
 
