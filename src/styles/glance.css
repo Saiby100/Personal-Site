@@ -40,7 +40,7 @@
 }
 .g-identity span {
   font: 400 var(--fs-sm) / 1 var(--sans);
-  color: var(--ink-58);
+  color: var(--ink-68);
 }
 .g-header-right {
   display: flex;
@@ -116,7 +116,7 @@
 .g-practices {
   margin: 0;
   font: 400 var(--fs-xs) / 1.45 var(--sans);
-  color: var(--ink-66);
+  color: var(--ink-75);
 }
 
 /* Project ----------------------------------------------------------------- */
@@ -172,7 +172,7 @@
 .g-project p {
   margin: 0;
   font: 400 0.75rem/1.5 var(--sans);
-  color: var(--ink-70);
+  color: var(--ink-80);
 }
 .g-project-foot {
   display: flex;
@@ -183,7 +183,7 @@
 }
 .g-project-stack {
   font-size: var(--fs-3xs);
-  color: var(--ink-42);
+  color: var(--ink-52);
   min-width: 0;
 }
 .g-project .pill {
@@ -229,7 +229,7 @@
 .g-role-grid p {
   margin: 0;
   font: 400 var(--fs-xs) / 1.45 var(--sans);
-  color: var(--ink-66);
+  color: var(--ink-75);
 }
 .g-metrics {
   margin-top: auto;
@@ -273,14 +273,14 @@
 }
 .g-toggle-label--off {
   font-weight: 400;
-  color: var(--ink-45);
+  color: var(--ink-56);
 }
 .g-toggle-track {
   width: 2.375rem;
   height: 1.25rem;
   border-radius: var(--rad-pill);
   border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   padding: 0.125rem;

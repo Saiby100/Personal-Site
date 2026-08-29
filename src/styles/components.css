@@ -36,10 +36,10 @@
   --surf-rad: var(--rad-lg);
 }
 .surface[data-level='2'][data-radius='md'] {
-  --surf-shadow: 0 14px 34px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --surf-shadow: 0 14px 34px rgba(0, 0, 0, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 .surface[data-level='2'][data-radius='lg'] {
-  --surf-shadow: 0 18px 42px rgba(0, 0, 0, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  --surf-shadow: 0 18px 42px rgba(0, 0, 0, 0.32), inset 0 1px 0 rgba(255, 255, 255, 0.22);
 }
 
 /* Reset for card-shaped buttons: they carry .surface and their own padding. */
@@ -52,8 +52,8 @@
   transition: background 0.25s, border-color 0.25s;
 }
 .card-button:hover {
-  background: rgba(20, 34, 25, 0.46);
-  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.28);
 }
 
 /* Section title ------------------------------------------------------------ */
@@ -67,7 +67,7 @@
   color: var(--sage);
 }
 .section-title[data-tone='muted'] {
-  color: var(--ink-45);
+  color: var(--ink-56);
 }
 /* A titled block head: larger, and lighter in weight than a bare label. */
 .section-title[data-rule] {
@@ -87,7 +87,7 @@
   font: 0.688rem/1 var(--mono);
   letter-spacing: normal;
   text-transform: none;
-  color: var(--ink-45);
+  color: var(--ink-56);
   flex: none;
 }
 
@@ -102,7 +102,7 @@
 /* Meta ---------------------------------------------------------------------- */
 .meta {
   font: var(--fs-2xs) / 1 var(--mono);
-  color: var(--ink-45);
+  color: var(--ink-56);
 }
 
 /* Chip ---------------------------------------------------------------------- */
@@ -116,7 +116,7 @@
 .chip[data-tone='skill'] {
   font: 400 0.688rem/1 var(--sans);
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.09);
+  background: rgba(255, 255, 255, 0.12);
   padding: 0.25rem 0.438rem;
 }
 .chip[data-size='lg'] {
@@ -178,13 +178,13 @@
   grid-area: 1 / 1;
   /* Concentric with the track: outer radius less the track's padding. */
   border-radius: calc(var(--seg-rad) - var(--seg-pad));
-  /* Frosted harder than the card behind it — that contrast is what marks
+  /* A brighter white frost than the card behind it — that lift is what marks
      the selection now that the track itself is transparent. */
-  background: rgba(var(--surf-2-rgb), 0.42);
+  background: rgba(var(--surf-2-rgb), 0.16);
   backdrop-filter: blur(var(--surf-2-blur)) saturate(var(--surf-2-sat));
   -webkit-backdrop-filter: blur(var(--surf-2-blur)) saturate(var(--surf-2-sat));
   border: 1px solid var(--hairline-strong);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
   transform: translateX(calc(var(--seg-index, 0) * 100%));
   transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -197,7 +197,7 @@
   letter-spacing: 0.05em;
   text-transform: uppercase;
   /* Weight stays fixed so selecting never reflows the columns. */
-  color: var(--ink-50);
+  color: var(--ink-62);
   background: none;
   border: none;
   padding: 0.438rem 0.688rem;
@@ -208,7 +208,7 @@
   transition: color 0.25s;
 }
 .segmented-option:hover {
-  color: var(--ink-70);
+  color: var(--ink-80);
 }
 .segmented-option[data-selected='true'] {
   color: var(--ink);
@@ -225,7 +225,7 @@
   border-radius: 50%;
   margin-top: 0.313rem;
   flex: none;
-  border: 1px solid var(--ink-50);
+  border: 1px solid var(--ink-62);
 }
 .timeline-dot[data-current='true'] {
   border-color: var(--sage);
@@ -241,7 +241,7 @@
 }
 .stack-note {
   font: 400 var(--fs-xs) / 1.35 var(--sans);
-  color: var(--ink-66);
+  color: var(--ink-75);
 }
 .timeline-item .meta {
   font-size: 0.625rem;
@@ -263,7 +263,7 @@
 }
 .media > figcaption {
   font: var(--fs-3xs) / 1.3 var(--mono);
-  color: var(--ink-50);
+  color: var(--ink-62);
 }
 .media > img {
   width: 100%;

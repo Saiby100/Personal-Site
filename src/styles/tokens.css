@@ -2,12 +2,14 @@
   /* Palette */
   --bg: #0e1712;
   --ink: #f1ede1;
-  --ink-70: rgba(241, 237, 225, 0.7);
-  --ink-66: rgba(241, 237, 225, 0.66);
-  --ink-58: rgba(241, 237, 225, 0.58);
-  --ink-50: rgba(241, 237, 225, 0.5);
-  --ink-45: rgba(241, 237, 225, 0.45);
-  --ink-42: rgba(241, 237, 225, 0.42);
+  /* Muted inks. The suffix is the alpha; they run higher than a dark-tinted
+     glass needed, because the white surfaces sit closer to the text. */
+  --ink-80: rgba(241, 237, 225, 0.8);
+  --ink-75: rgba(241, 237, 225, 0.75);
+  --ink-68: rgba(241, 237, 225, 0.68);
+  --ink-62: rgba(241, 237, 225, 0.62);
+  --ink-56: rgba(241, 237, 225, 0.56);
+  --ink-52: rgba(241, 237, 225, 0.52);
   --sage: #b4cdab;
   --sage-bright: #cfe3c6;
   --sage-92: rgba(180, 205, 171, 0.92);
@@ -16,18 +18,20 @@
   --on-sage: #12201a;
 
   /* Glass material. Two levels only: 1 = glance cards, 2 = detail panels.
-     Radius is a separate axis, so a level-2 panel can be md or lg. */
-  --surf-1-rgb: 14, 24, 18;
-  --surf-1-tint: 0.18;
+     Radius is a separate axis, so a level-2 panel can be md or lg.
+     The tint is white: each level lifts off the dark ground rather than
+     sinking into it, so the higher level is the lighter one. */
+  --surf-1-rgb: 255, 255, 255;
+  --surf-1-tint: 0.06;
   --surf-1-blur: 6px;
   --surf-1-sat: 1.4;
-  --surf-1-hair: 0.11;
+  --surf-1-hair: 0.14;
 
-  --surf-2-rgb: 16, 28, 21;
-  --surf-2-tint: 0.3;
+  --surf-2-rgb: 255, 255, 255;
+  --surf-2-tint: 0.1;
   --surf-2-blur: 14px;
   --surf-2-sat: 1.7;
-  --surf-2-hair: 0.14;
+  --surf-2-hair: 0.2;
 
   /* Radius scale */
   --rad-sm: 10px;
@@ -35,11 +39,11 @@
   --rad-lg: 18px;
   --rad-pill: 999px;
 
-  --hairline: rgba(255, 255, 255, 0.11);
-  --hairline-strong: rgba(255, 255, 255, 0.14);
+  --hairline: rgba(255, 255, 255, 0.14);
+  --hairline-strong: rgba(255, 255, 255, 0.2);
   /* --rule separates content inside a card; --rule-strong separates sections. */
-  --rule: rgba(255, 255, 255, 0.1);
-  --rule-strong: rgba(255, 255, 255, 0.13);
+  --rule: rgba(255, 255, 255, 0.12);
+  --rule-strong: rgba(255, 255, 255, 0.16);
 
   /* Type */
   --serif: Newsreader, Georgia, 'Times New Roman', serif;
