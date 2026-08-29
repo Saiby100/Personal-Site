@@ -1,5 +1,5 @@
 import ExternalLink from '@/components/ui/ExternalLink';
-import { links } from '@/data/site';
+import { links } from '@/data/profile';
 
 export default function GlanceNav() {
   return (

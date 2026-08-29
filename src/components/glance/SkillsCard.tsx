@@ -1,7 +1,7 @@
 import Chip from '@/components/ui/Chip';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Surface from '@/components/ui/Surface';
-import { glanceSkills } from '@/data/site';
+import { glanceSkills } from '@/data/skill';
 
 export default function SkillsCard() {
   return (

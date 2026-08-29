@@ -1,4 +1,4 @@
-import { media, type MediaId } from '@/data/site';
+import { media, type MediaId } from '@/data/media';
 import type { SurfaceLevel, SurfaceRadius } from './Surface';
 import { cn } from './cn';
 
@@ -12,7 +12,7 @@ interface Props {
 
 /**
  * Image slot. Renders the hatched placeholder with its caption until a real
- * file is set on the entry in `data/site.ts`.
+ * file is set on the entry in `data/media.ts`.
  */
 export default function MediaSlot({ id, className, level, radius = 'sm' }: Props) {
   const item = media[id];

@@ -2,7 +2,7 @@ import Heading from '@/components/ui/Heading';
 import MediaSlot from '@/components/ui/MediaSlot';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Surface from '@/components/ui/Surface';
-import { projects } from '@/data/site';
+import { projects } from '@/data/project';
 
 export default function ProjectSection() {
   return (

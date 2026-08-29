@@ -2,7 +2,8 @@ import Divider from '@/components/ui/Divider';
 import PillLink from '@/components/ui/PillLink';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Surface from '@/components/ui/Surface';
-import { glancePractices, profile } from '@/data/site';
+import { glancePractices } from '@/data/skill';
+import { profile } from '@/data/profile';
 
 interface Props {
   onToggle: () => void;

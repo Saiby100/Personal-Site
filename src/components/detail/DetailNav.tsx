@@ -3,7 +3,8 @@ import ExternalLink from '@/components/ui/ExternalLink';
 import PillLink from '@/components/ui/PillLink';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Surface from '@/components/ui/Surface';
-import { links, tocItems } from '@/data/site';
+import { tocItems } from '@/data/nav';
+import { links } from '@/data/profile';
 
 /** Sticky sidebar: section links, then the ways to get hold of me. */
 export default function DetailNav() {

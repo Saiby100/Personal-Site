@@ -1,5 +1,5 @@
 import Surface from '@/components/ui/Surface';
-import { profile } from '@/data/site';
+import { profile } from '@/data/profile';
 import GlanceNav from './GlanceNav';
 import GlanceToggle from './GlanceToggle';
 

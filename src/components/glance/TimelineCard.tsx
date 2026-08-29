@@ -3,24 +3,37 @@ import Heading from '@/components/ui/Heading';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Surface from '@/components/ui/Surface';
 import TimelineItem from '@/components/ui/TimelineItem';
-import { education, timeline } from '@/data/site';
-
-const degree = education[1];
+import { educationRoles, formatPeriod, workRoles } from '@/data/role';
 
 export default function TimelineCard() {
   return (
     <Surface as="aside" className="g-timeline">
       <SectionTitle>Timeline</SectionTitle>
-      {timeline.map((item) => (
-        <TimelineItem key={item.title} {...item} />
+      {workRoles.map((role) => (
+        <TimelineItem
+          key={role.id}
+          title={role.glance?.title ?? role.title}
+          org={role.org}
+          period={formatPeriod(role)}
+          current={role.end === null}
+        />
       ))}
 
       <Divider push />
       <SectionTitle>Education</SectionTitle>
-      <div className="stack">
-        <Heading as="strong">{degree.title}</Heading>
-        <span className="stack-note">{degree.glanceMeta}</span>
-      </div>
+      {educationRoles.map((role) => (
+        <div className="stack" key={role.id}>
+          <Heading as="strong">{role.title}</Heading>
+          <span className="stack-note">
+            {[
+              `${role.org}, ${formatPeriod(role, { compact: true })}`,
+              role.glance?.note,
+            ]
+              .filter(Boolean)
+              .join(' · ')}
+          </span>
+        </div>
+      ))}
     </Surface>
   );
 }

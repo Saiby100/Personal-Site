@@ -1,18 +1,20 @@
 import Heading from '@/components/ui/Heading';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Surface from '@/components/ui/Surface';
-import { education } from '@/data/site';
+import { educationRoles, formatPeriod } from '@/data/role';
 
 export default function EducationSection() {
   return (
     <Surface as="section" id="earlier" level={2} radius="lg">
-      <SectionTitle rule="strong">Teaching &amp; education</SectionTitle>
+      <SectionTitle rule="strong">Education</SectionTitle>
       <div className="auto-grid d-grid">
-        {education.map((item) => (
-          <div key={item.title}>
-            <Heading>{item.title}</Heading>
-            <span className="meta">{item.meta}</span>
-            <p>{item.body}</p>
+        {educationRoles.map((role) => (
+          <div key={role.id}>
+            <Heading>{role.title}</Heading>
+            <span className="meta">{`${role.org} · ${formatPeriod(role)}`}</span>
+            {role.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
           </div>
         ))}
       </div>

@@ -5,7 +5,7 @@ import PillLink from '@/components/ui/PillLink';
 import SectionTitle from '@/components/ui/SectionTitle';
 import SegmentedControl from '@/components/ui/SegmentedControl';
 import Surface from '@/components/ui/Surface';
-import { projects } from '@/data/site';
+import { projects } from '@/data/project';
 
 interface Props {
   onOpen: (id: string) => void;
@@ -25,7 +25,7 @@ export default function ProjectCard({ onOpen }: Props) {
         <SegmentedControl
           className="g-project-switch"
           label="Project"
-          options={projects.map((p) => ({ id: p.id, label: p.shortName ?? p.name }))}
+          options={projects.map((p) => ({ id: p.id, label: p.glance.title ?? p.name }))}
           value={active.id}
           onChange={setActiveId}
         />
@@ -33,7 +33,7 @@ export default function ProjectCard({ onOpen }: Props) {
       <div className="g-project-main">
         <MediaSlot id={active.media} />
         <div className="g-project-body">
-          <p>{active.glanceBlurb}</p>
+          <p>{active.glance.blurb}</p>
         </div>
       </div>
       <div className="g-project-foot">

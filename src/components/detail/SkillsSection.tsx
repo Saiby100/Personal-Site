@@ -1,6 +1,6 @@
 import SectionTitle from '@/components/ui/SectionTitle';
 import Surface from '@/components/ui/Surface';
-import { skillGroups } from '@/data/site';
+import { skillGroups } from '@/data/skill';
 
 export default function SkillsSection() {
   return (
