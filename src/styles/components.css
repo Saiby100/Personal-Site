@@ -64,7 +64,7 @@
   font: 500 var(--st-size, 0.625rem) / 1 var(--sans);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--mist);
+  color: var(--sage);
 }
 .section-title[data-tone='muted'] {
   color: var(--ink-56);
@@ -146,8 +146,8 @@
 .pill {
   align-self: flex-start;
   font: 500 0.75rem/1 var(--sans);
-  color: var(--on-mist) !important;
-  background: var(--mist-92);
+  color: var(--on-sage) !important;
+  background: var(--sage-92);
   border: none;
   padding: 0.563rem 0.813rem;
   border-radius: var(--rad-pill);
@@ -155,7 +155,7 @@
   transition: background 0.2s;
 }
 .pill:hover {
-  background: var(--mist-bright);
+  background: var(--sage-bright);
 }
 
 /* Segmented control -------------------------------------------------------- */
@@ -166,9 +166,10 @@
   grid-template-columns: repeat(var(--seg-count, 1), minmax(0, 1fr));
   grid-template-rows: auto;
   align-items: stretch;
-  /* Transparent: the card's own glass shows through, so only the border reads. */
+  /* Transparent: the card's own glass shows through, so only the border reads.
+     That makes the border the whole component — it runs at rule strength. */
   background: none;
-  border: 1px solid var(--hairline);
+  border: 1px solid var(--rule);
   --seg-rad: var(--rad-sm);
   --seg-pad: 0.25rem;
   padding: var(--seg-pad);
@@ -178,13 +179,15 @@
   grid-area: 1 / 1;
   /* Concentric with the track: outer radius less the track's padding. */
   border-radius: calc(var(--seg-rad) - var(--seg-pad));
-  /* A brighter white frost than the card behind it — that lift is what marks
-     the selection now that the track itself is transparent. */
-  background: rgba(var(--surf-2-rgb), 0.16);
-  backdrop-filter: blur(var(--surf-2-blur)) saturate(var(--surf-2-sat));
-  -webkit-backdrop-filter: blur(var(--surf-2-blur)) saturate(var(--surf-2-sat));
-  border: 1px solid var(--hairline-strong);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  /* No backdrop-filter here, deliberately. The card behind the thumb has one,
+     which makes it a backdrop root, so the thumb can only ever sample the
+     card's own flat tint — blurring that yields nothing at any radius. The
+     selection is marked with tint, border and an inner highlight instead. */
+  background: rgba(var(--surf-2-rgb), 0.22);
+  border: 1px solid var(--rule-strong);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    0 1px 3px rgba(0, 0, 0, 0.18);
   transform: translateX(calc(var(--seg-index, 0) * 100%));
   transition: transform 0.32s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -228,9 +231,9 @@
   border: 1px solid var(--ink-62);
 }
 .timeline-dot[data-current='true'] {
-  border-color: var(--mist);
-  background: var(--mist);
-  box-shadow: 0 0 0 3px rgba(169, 200, 216, 0.18);
+  border-color: var(--sage);
+  background: var(--sage);
+  box-shadow: 0 0 0 3px rgba(180, 205, 171, 0.18);
 }
 /* A labelled stack: heading, then muted lines. Shared with the education block. */
 .stack {
@@ -388,7 +391,7 @@
   padding: 0 0 0.125rem;
 }
 .site-links a:hover {
-  color: var(--mist);
+  color: var(--sage);
 }
 .site-header[data-mode='detail'] .site-links {
   opacity: 0;
@@ -429,8 +432,8 @@
   width: 2.375rem;
   height: 1.25rem;
   border-radius: var(--rad-pill);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--rule-strong);
+  background: rgba(255, 255, 255, 0.14);
   display: flex;
   align-items: center;
   padding: 0.125rem;

@@ -19,7 +19,7 @@ body {
 }
 
 a {
-  color: var(--mist);
+  color: var(--sage);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -33,7 +33,7 @@ button {
 }
 
 ::selection {
-  background: rgba(169, 200, 216, 0.32);
+  background: rgba(180, 205, 171, 0.32);
 }
 
 ::-webkit-scrollbar {
@@ -50,7 +50,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--mist);
+  outline: 2px solid var(--sage);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -97,32 +97,47 @@ button {
   position: fixed;
   inset: -3%;
   z-index: 0;
-  background: var(--bg) url("/wallpaper.jpg") center / cover no-repeat;
+  /* Glance runs on the flat ground alone — the photo would compete with the
+     cards at the density they sit at. The wallpaper belongs to detail, and
+     lives on the pseudo-element so it can fade in across the mode change. */
+  background:
+    radial-gradient(120% 90% at 22% -10%, rgba(180, 205, 171, 0.1) 0%, transparent 62%),
+    var(--bg);
   transform: scale(1);
-  /* Glance holds the least scrim, so the photo is at its most vivid there and
-     competes with the cards. Pull its saturation and brightness down; detail
-     gets its restraint from the full-strength scrim instead. */
-  filter: saturate(0.78) brightness(0.88);
-  transition:
-    transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
-    filter 0.9s ease;
+  /* No filter here, ever. A filtered element is promoted to its own composited
+     surface, and every backdrop-filter above it — the cards, the header, the
+     segmented control — then samples that surface instead of the page, so the
+     glass stops frosting. Restraint on the photo comes from the scrim, which
+     paints instead. */
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.backdrop::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/wallpaper.jpg") center / cover no-repeat;
+  opacity: 0;
+  transition: opacity 0.9s ease;
 }
 .backdrop[data-mode="detail"] {
   transform: scale(1.07);
-  filter: none;
+}
+.backdrop[data-mode="detail"]::after {
+  opacity: 1;
 }
 
+/* Only the photo needs taming, so the scrim rides with it. */
 .scrim {
-  position: jkkfixed;
+  position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background: radial-gradient(
     120% 100% at 25% 0%,
-    rgba(5, 12, 20, 0.18) 0%,
-    rgba(5, 12, 20, 0.6) 100%
+    rgba(8, 16, 11, 0.18) 0%,
+    rgba(8, 16, 11, 0.6) 100%
   );
-  opacity: 0.55;
+  opacity: 0;
   transition: opacity 0.9s ease;
 }
 .scrim[data-mode="detail"] {
