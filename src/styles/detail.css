@@ -24,7 +24,7 @@
   top: 0;
   left: 0;
   height: 2px;
-  background: var(--sage);
+  background: var(--mist);
   z-index: 20;
   transition: width 0.1s linear;
 }
@@ -52,7 +52,7 @@
   color: var(--ink);
 }
 .d-toc a:hover {
-  color: var(--sage);
+  color: var(--mist);
 }
 .d-toc .divider {
   margin-top: 0.25rem;
@@ -146,7 +146,7 @@
   padding: 0.5rem;
 }
 .d-note {
-  border-left: 2px solid var(--sage);
+  border-left: 2px solid var(--mist);
   padding: 0.125rem 0 0.125rem 0.75rem;
   font: var(--fs-xs) / 1.6 var(--mono);
   color: var(--ink-68);

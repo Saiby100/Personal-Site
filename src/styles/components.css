@@ -64,7 +64,7 @@
   font: 500 var(--st-size, 0.625rem) / 1 var(--sans);
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--sage);
+  color: var(--mist);
 }
 .section-title[data-tone='muted'] {
   color: var(--ink-56);
@@ -107,7 +107,7 @@
 
 /* Chip ---------------------------------------------------------------------- */
 .chip {
-  font: 0.625rem/1 var(--mono);
+  font: 0.688rem/1 var(--mono);
   color: var(--tan);
   background: var(--tan-bg);
   padding: 0.25rem 0.375rem;
@@ -146,8 +146,8 @@
 .pill {
   align-self: flex-start;
   font: 500 0.75rem/1 var(--sans);
-  color: var(--on-sage) !important;
-  background: var(--sage-92);
+  color: var(--on-mist) !important;
+  background: var(--mist-92);
   border: none;
   padding: 0.563rem 0.813rem;
   border-radius: var(--rad-pill);
@@ -155,7 +155,7 @@
   transition: background 0.2s;
 }
 .pill:hover {
-  background: var(--sage-bright);
+  background: var(--mist-bright);
 }
 
 /* Segmented control -------------------------------------------------------- */
@@ -228,9 +228,9 @@
   border: 1px solid var(--ink-62);
 }
 .timeline-dot[data-current='true'] {
-  border-color: var(--sage);
-  background: var(--sage);
-  box-shadow: 0 0 0 3px rgba(180, 205, 171, 0.18);
+  border-color: var(--mist);
+  background: var(--mist);
+  box-shadow: 0 0 0 3px rgba(169, 200, 216, 0.18);
 }
 /* A labelled stack: heading, then muted lines. Shared with the education block. */
 .stack {
@@ -388,7 +388,7 @@
   padding: 0 0 0.125rem;
 }
 .site-links a:hover {
-  color: var(--sage);
+  color: var(--mist);
 }
 .site-header[data-mode='detail'] .site-links {
   opacity: 0;

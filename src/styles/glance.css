@@ -160,9 +160,6 @@
   padding: 0;
   animation-delay: 0.14s;
 }
-.g-role-head {
-  padding: 0.625rem 1rem;
-}
 .g-role-grid {
   flex: 1;
   display: grid;
@@ -171,7 +168,7 @@
   min-height: 0;
 }
 .g-role-grid article {
-  padding: 0.625rem 0.875rem;
+  padding: 0.875rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.313rem;
@@ -187,8 +184,11 @@
 }
 .g-role-grid p {
   margin: 0;
-  font: 400 var(--fs-xs) / 1.45 var(--sans);
-  color: var(--ink-75);
+  /* The densest copy on the page: it gets the largest of the small sizes and
+     the brightest muted ink, because it is what a reader actually stops on. */
+  font: 400 var(--fs-sm) / 1.5 var(--sans);
+  color: var(--ink-80);
+  text-wrap: pretty;
 }
 .g-metrics {
   margin-top: auto;

@@ -19,7 +19,7 @@ body {
 }
 
 a {
-  color: var(--sage);
+  color: var(--mist);
   text-decoration: none;
   transition: color 0.2s;
 }
@@ -33,7 +33,7 @@ button {
 }
 
 ::selection {
-  background: rgba(180, 205, 171, 0.32);
+  background: rgba(169, 200, 216, 0.32);
 }
 
 ::-webkit-scrollbar {
@@ -50,7 +50,7 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--sage);
+  outline: 2px solid var(--mist);
   outline-offset: 3px;
   border-radius: 4px;
 }
@@ -97,28 +97,35 @@ button {
   position: fixed;
   inset: -3%;
   z-index: 0;
-  background: var(--bg) url('/wallpaper.jpg') center / cover no-repeat;
+  background: var(--bg) url("/wallpaper.jpg") center / cover no-repeat;
   transform: scale(1);
-  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+  /* Glance holds the least scrim, so the photo is at its most vivid there and
+     competes with the cards. Pull its saturation and brightness down; detail
+     gets its restraint from the full-strength scrim instead. */
+  filter: saturate(0.78) brightness(0.88);
+  transition:
+    transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.9s ease;
 }
-.backdrop[data-mode='detail'] {
+.backdrop[data-mode="detail"] {
   transform: scale(1.07);
+  filter: none;
 }
 
 .scrim {
-  position: fixed;
+  position: jkkfixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background: radial-gradient(
     120% 100% at 25% 0%,
-    rgba(8, 16, 11, 0.18) 0%,
-    rgba(8, 16, 11, 0.6) 100%
+    rgba(5, 12, 20, 0.18) 0%,
+    rgba(5, 12, 20, 0.6) 100%
   );
   opacity: 0.55;
   transition: opacity 0.9s ease;
 }
-.scrim[data-mode='detail'] {
+.scrim[data-mode="detail"] {
   opacity: 1;
 }
 
@@ -132,14 +139,14 @@ button {
    the grid used to own — it has to be a definite height, not a min-height, or
    the grid below falls back to sizing itself from its content and overflows
    the viewport. */
-.shell[data-mode='glance'] {
+.shell[data-mode="glance"] {
   height: max(100vh, 49.375rem);
   display: flex;
   flex-direction: column;
 }
 
 @media (max-width: 900px) {
-  .shell[data-mode='glance'] {
+  .shell[data-mode="glance"] {
     height: auto;
     display: block;
   }

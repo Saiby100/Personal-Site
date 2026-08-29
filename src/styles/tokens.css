@@ -1,6 +1,6 @@
 :root {
   /* Palette */
-  --bg: #0e1712;
+  --bg: #0b1620;
   --ink: #f1ede1;
   /* Muted inks. The suffix is the alpha; they run higher than a dark-tinted
      glass needed, because the white surfaces sit closer to the text. */
@@ -10,26 +10,29 @@
   --ink-62: rgba(241, 237, 225, 0.62);
   --ink-56: rgba(241, 237, 225, 0.56);
   --ink-52: rgba(241, 237, 225, 0.52);
-  --sage: #b4cdab;
-  --sage-bright: #cfe3c6;
-  --sage-92: rgba(180, 205, 171, 0.92);
-  --tan: #e3c293;
-  --tan-bg: rgba(227, 194, 147, 0.14);
-  --on-sage: #12201a;
+  /* Sampled from wallpaper.jpg: the pale cow-parsley heads and the mist over
+     the field. --tan is the horizon glow — the one warm note in an otherwise
+     blue photo, which is why the metric chips still use it. */
+  --mist: #a9c8d8;
+  --mist-bright: #cbe0ea;
+  --mist-92: rgba(169, 200, 216, 0.92);
+  --tan: #dcc19b;
+  --tan-bg: rgba(220, 193, 155, 0.2);
+  --on-mist: #0b1a24;
 
   /* Glass material. Two levels only: 1 = glance cards, 2 = detail panels.
      Radius is a separate axis, so a level-2 panel can be md or lg.
      The tint is white: each level lifts off the dark ground rather than
      sinking into it, so the higher level is the lighter one. */
   --surf-1-rgb: 255, 255, 255;
-  --surf-1-tint: 0.06;
-  --surf-1-blur: 6px;
+  --surf-1-tint: 0.09;
+  --surf-1-blur: 18px;
   --surf-1-sat: 1.4;
   --surf-1-hair: 0.14;
 
   --surf-2-rgb: 255, 255, 255;
-  --surf-2-tint: 0.1;
-  --surf-2-blur: 14px;
+  --surf-2-tint: 0.13;
+  --surf-2-blur: 24px;
   --surf-2-sat: 1.7;
   --surf-2-hair: 0.2;
 

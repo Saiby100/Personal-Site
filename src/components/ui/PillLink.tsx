@@ -9,7 +9,7 @@ interface Props {
   children: ReactNode;
 }
 
-/** The sage call-to-action pill, as a link or a button. */
+/** The accent call-to-action pill, as a link or a button. */
 export default function PillLink({ href, download, onClick, className, children }: Props) {
   if (href) {
     return (
