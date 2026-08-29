@@ -29,7 +29,7 @@
      reads as plain transparency; the frost only becomes visible once the blur
      is wide enough to flatten the bokeh itself. */
   --surf-1-rgb: 255, 255, 255;
-  --surf-1-tint: 0.09;
+  --surf-1-tint: 0.06;
   --surf-1-blur: 26px;
   --surf-1-sat: 1.25;
   --surf-1-hair: 0.24;

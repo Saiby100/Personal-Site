@@ -97,12 +97,11 @@ button {
   position: fixed;
   inset: -3%;
   z-index: 0;
-  /* Glance runs on the flat ground alone — the photo would compete with the
-     cards at the density they sit at. The wallpaper belongs to detail, and
-     lives on the pseudo-element so it can fade in across the mode change. */
+  /* The wallpaper carries both views; the tint gradient sits over it. */
   background:
     radial-gradient(120% 90% at 22% -10%, rgba(180, 205, 171, 0.1) 0%, transparent 62%),
-    var(--bg);
+    url('/wallpaper.jpg') center / cover no-repeat;
+  background-color: var(--bg);
   transform: scale(1);
   /* No filter here, ever. A filtered element is promoted to its own composited
      surface, and every backdrop-filter above it — the cards, the header, the
@@ -111,19 +110,8 @@ button {
      paints instead. */
   transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
-.backdrop::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("/wallpaper.jpg") center / cover no-repeat;
-  opacity: 0;
-  transition: opacity 0.9s ease;
-}
-.backdrop[data-mode="detail"] {
+.backdrop[data-mode='detail'] {
   transform: scale(1.07);
-}
-.backdrop[data-mode="detail"]::after {
-  opacity: 1;
 }
 
 /* Only the photo needs taming, so the scrim rides with it. */
@@ -140,7 +128,7 @@ button {
   opacity: 0;
   transition: opacity 0.9s ease;
 }
-.scrim[data-mode="detail"] {
+.scrim[data-mode='detail'] {
   opacity: 1;
 }
 
@@ -154,14 +142,14 @@ button {
    the grid used to own — it has to be a definite height, not a min-height, or
    the grid below falls back to sizing itself from its content and overflows
    the viewport. */
-.shell[data-mode="glance"] {
+.shell[data-mode='glance'] {
   height: max(100vh, 49.375rem);
   display: flex;
   flex-direction: column;
 }
 
 @media (max-width: 900px) {
-  .shell[data-mode="glance"] {
+  .shell[data-mode='glance'] {
     height: auto;
     display: block;
   }
