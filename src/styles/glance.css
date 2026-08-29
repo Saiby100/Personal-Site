@@ -332,6 +332,12 @@
   .g-toggle-label {
     font-size: var(--fs-3xs);
   }
+  /* Not enough room for the name and the selector on one line. */
+  .g-project-head {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.625rem;
+  }
   .g-project-main {
     flex-direction: column;
   }

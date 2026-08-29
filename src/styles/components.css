@@ -166,7 +166,8 @@
   grid-template-columns: repeat(var(--seg-count, 1), minmax(0, 1fr));
   grid-template-rows: auto;
   align-items: stretch;
-  background: rgba(0, 0, 0, 0.28);
+  /* Transparent: the card's own glass shows through, so only the border reads. */
+  background: none;
   border: 1px solid var(--hairline);
   --seg-rad: var(--rad-sm);
   --seg-pad: 0.25rem;
@@ -177,9 +178,11 @@
   grid-area: 1 / 1;
   /* Concentric with the track: outer radius less the track's padding. */
   border-radius: calc(var(--seg-rad) - var(--seg-pad));
-  background: rgba(var(--surf-1-rgb), 0.55);
-  backdrop-filter: blur(var(--surf-1-blur)) saturate(var(--surf-1-sat));
-  -webkit-backdrop-filter: blur(var(--surf-1-blur)) saturate(var(--surf-1-sat));
+  /* Frosted harder than the card behind it — that contrast is what marks
+     the selection now that the track itself is transparent. */
+  background: rgba(var(--surf-2-rgb), 0.42);
+  backdrop-filter: blur(var(--surf-2-blur)) saturate(var(--surf-2-sat));
+  -webkit-backdrop-filter: blur(var(--surf-2-blur)) saturate(var(--surf-2-sat));
   border: 1px solid var(--hairline-strong);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.15);
   transform: translateX(calc(var(--seg-index, 0) * 100%));
