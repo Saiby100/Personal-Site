@@ -1,14 +1,10 @@
-import CardButton from '@/components/ui/CardButton';
+import Surface from '@/components/ui/Surface';
 import { profile } from '@/data/profile';
 
-interface Props {
-  onOpen: () => void;
-}
-
-export default function SummaryCard({ onOpen }: Props) {
+export default function SummaryCard() {
   return (
-    <CardButton className="g-summary" onClick={onOpen}>
+    <Surface className="g-summary">
       <p>{profile.glance.summary}</p>
-    </CardButton>
+    </Surface>
   );
 }

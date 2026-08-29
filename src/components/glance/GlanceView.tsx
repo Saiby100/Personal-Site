@@ -18,9 +18,9 @@ export default function GlanceView({ leaving, onToggle, onGoDetail }: Props) {
   return (
     <div className="glance" data-leaving={leaving ? '' : undefined}>
       <MediaSlot id="portrait" level={1} className="g-portrait" />
-      <SummaryCard onOpen={() => onGoDetail('summary')} />
+      <SummaryCard />
       <TimelineCard />
-      <RoleCard onOpen={() => onGoDetail('role')} />
+      <RoleCard />
       <ProjectCard onOpen={(id) => onGoDetail(id)} />
       <SkillsCard />
       <ContactCard onToggle={onToggle} />

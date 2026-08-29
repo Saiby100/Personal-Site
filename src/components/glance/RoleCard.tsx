@@ -1,16 +1,12 @@
-import CardButton from '@/components/ui/CardButton';
 import Chip from '@/components/ui/Chip';
 import Heading from '@/components/ui/Heading';
+import Surface from '@/components/ui/Surface';
 import { currentRole } from '@/data/role';
 
-interface Props {
-  onOpen: () => void;
-}
-
 /* No header: the timeline card already names the role, the org and the dates. */
-export default function RoleCard({ onOpen }: Props) {
+export default function RoleCard() {
   return (
-    <CardButton className="g-role" onClick={onOpen}>
+    <Surface as="section" className="g-role">
       <div className="g-role-grid">
         {currentRole.highlights?.map((item) => (
           <article key={item.id}>
@@ -24,6 +20,6 @@ export default function RoleCard({ onOpen }: Props) {
           </article>
         ))}
       </div>
-    </CardButton>
+    </Surface>
   );
 }
