@@ -12,9 +12,7 @@ export default function SkillsSection() {
             <SectionTitle as="span" tone="muted">
               {group.title}
             </SectionTitle>
-            <span className="d-skill-list">
-              {group.items.map((item) => item.label).join(' · ')}
-            </span>
+            <span className="d-skill-list">{group.items.join(' · ')}</span>
           </div>
         ))}
       </div>

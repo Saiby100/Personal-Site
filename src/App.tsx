@@ -14,11 +14,7 @@ export default function App() {
       <div className="shell" data-mode={mode}>
         <SiteHeader mode={leaving ?? mode} onToggle={toggle} />
         {mode === 'glance' ? (
-          <GlanceView
-            leaving={leaving}
-            onToggle={toggle}
-            onGoDetail={(anchor) => switchTo('detail', anchor)}
-          />
+          <GlanceView leaving={leaving} onGoDetail={(anchor) => switchTo('detail', anchor)} />
         ) : (
           <DetailView leaving={leaving} />
         )}
