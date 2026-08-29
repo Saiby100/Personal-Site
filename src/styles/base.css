@@ -127,6 +127,24 @@ button {
   z-index: 1;
 }
 
+/* The header is a flow child of the shell rather than part of either view, so
+   it survives the mode change. In glance the shell owns the one-screen height
+   the grid used to own — it has to be a definite height, not a min-height, or
+   the grid below falls back to sizing itself from its content and overflows
+   the viewport. */
+.shell[data-mode='glance'] {
+  height: max(100vh, 49.375rem);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .shell[data-mode='glance'] {
+    height: auto;
+    display: block;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

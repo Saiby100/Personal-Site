@@ -2,8 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 
 export type Mode = 'glance' | 'detail';
 
-/** Duration of the exit animation before the other view mounts. */
-const EXIT_MS = 340;
+/** Time the leaving view gets before the other mounts — long enough for the
+    header bar to finish resizing, so the incoming cards follow the morph. */
+const EXIT_MS = 420;
 
 /** Anchors that only exist inside the detail view. */
 const DETAIL_ANCHORS = ['detail', 'summary', 'role', 'project', 'earlier', 'skills'];
@@ -96,9 +97,8 @@ export function useMode() {
 
   useEffect(() => () => window.clearTimeout(timer.current), []);
 
-  const exitAnimation = leaving
-    ? `${mode === 'detail' ? 'shellOutDown' : 'shellOut'} .34s cubic-bezier(.4,0,1,1) both`
-    : undefined;
-
-  return { mode, switchTo, toggle, exitAnimation };
+  /* The views drive their own exit animations from CSS. `leaving` is the mode
+     being switched to: the header bar takes it straight away and resizes while
+     the old cards clear out, so the morph leads and the new cards follow. */
+  return { mode, switchTo, toggle, leaving };
 }

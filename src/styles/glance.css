@@ -1,11 +1,13 @@
 /* Layout for the glance grid. Materials and primitives live in components.css. */
 
 .glance {
-  height: max(100vh, 49.375rem);
-  padding: 1.125rem;
+  /* Fills whatever the shared header leaves of the first screen. */
+  flex: 1;
+  min-height: 0;
+  padding: 0 1.125rem 1.125rem;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: auto minmax(12.5rem, 1.8fr) minmax(15.625rem, 1.2fr) minmax(12rem, 2fr);
+  grid-template-rows: minmax(12.5rem, 1.8fr) minmax(15.625rem, 1.2fr) minmax(12rem, 2fr);
   gap: 0.625rem;
 }
 
@@ -13,59 +15,16 @@
   animation: cardIn 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
-/* Header ------------------------------------------------------------------ */
-.g-header {
-  grid-column: 1 / -1;
-  grid-row: 1;
-  padding: 0.688rem 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-.g-identity {
-  display: flex;
-  align-items: baseline;
-  gap: 0.875rem;
-  flex-wrap: wrap;
-}
-.g-identity h1 {
-  margin: 0;
-  /* vh keeps the name in proportion to the one-screen grid; the rem bounds let
-     it grow with the root on a large display. */
-  font: 300 clamp(1.375rem, 2.9vh, 1.75rem) / 1 var(--serif);
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-.g-identity span {
-  font: 400 var(--fs-sm) / 1 var(--sans);
-  color: var(--ink-68);
-}
-.g-header-right {
-  display: flex;
-  align-items: center;
-  gap: 1.25rem;
-  flex-wrap: wrap;
-}
-.g-nav {
-  display: flex;
-  gap: 0.875rem;
-  font: 400 var(--fs-sm) / 1 var(--sans);
-}
-.g-nav a {
-  color: var(--ink);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-  padding: 0 0 0.125rem;
-}
-.g-nav a:hover {
-  color: var(--sage);
+/* Cleared out ahead of the header's resize, so the bar morphs against an
+   empty screen and the next view's cards land after it. */
+.glance[data-leaving] > * {
+  animation: shellOut 0.22s cubic-bezier(0.4, 0, 1, 1) both;
 }
 
 /* Portrait ---------------------------------------------------------------- */
 .g-portrait {
   grid-column: 1 / 4;
-  grid-row: 2;
+  grid-row: 1;
   animation-delay: 0.04s;
   align-items: flex-end;
   padding: 0.625rem;
@@ -76,7 +35,7 @@
 /* Summary ----------------------------------------------------------------- */
 .g-summary {
   grid-column: 4 / 10;
-  grid-row: 2;
+  grid-row: 1;
   padding: 0.875rem 1.125rem;
   align-items: center;
   animation-delay: 0.08s;
@@ -91,7 +50,7 @@
 /* Timeline & education ---------------------------------------------------- */
 .g-timeline {
   grid-column: 10 / 13;
-  grid-row: 2 / 4;
+  grid-row: 1 / 3;
   padding: 0.875rem;
   display: flex;
   flex-direction: column;
@@ -102,7 +61,7 @@
 /* Skills ------------------------------------------------------------------ */
 .g-skills {
   grid-column: 7 / 10;
-  grid-row: 4;
+  grid-row: 3;
   padding: 0.875rem;
   display: flex;
   flex-direction: column;
@@ -122,7 +81,7 @@
 /* Project ----------------------------------------------------------------- */
 .g-project {
   grid-column: 1 / 7;
-  grid-row: 4;
+  grid-row: 3;
   padding: 0.75rem 1rem 0.875rem;
   flex-direction: column;
   display: flex;
@@ -196,7 +155,7 @@
 /* Current role ------------------------------------------------------------ */
 .g-role {
   grid-column: 1 / 10;
-  grid-row: 3;
+  grid-row: 2;
   flex-direction: column;
   padding: 0;
   animation-delay: 0.14s;
@@ -238,7 +197,7 @@
 /* Contact ----------------------------------------------------------------- */
 .g-contact {
   grid-column: 10 / 13;
-  grid-row: 4;
+  grid-row: 3;
   padding: 0.813rem 0.875rem;
   display: flex;
   flex-direction: column;
@@ -255,49 +214,9 @@
   letter-spacing: 0.04em;
 }
 
-/* Mode toggle (glance variant) -------------------------------------------- */
-.g-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: none;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-.g-toggle-label {
-  font: 500 var(--fs-2xs) / 1 var(--sans);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink);
-}
-.g-toggle-label--off {
-  font-weight: 400;
-  color: var(--ink-56);
-}
-.g-toggle-track {
-  width: 2.375rem;
-  height: 1.25rem;
-  border-radius: var(--rad-pill);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  background: rgba(255, 255, 255, 0.1);
-  display: flex;
-  align-items: center;
-  padding: 0.125rem;
-}
-.g-toggle-knob {
-  width: 0.875rem;
-  height: 0.875rem;
-  border-radius: 50%;
-  background: var(--ink);
-  display: block;
-  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
 /* Responsive -------------------------------------------------------------- */
 @media (max-width: 900px) {
   .glance {
-    height: auto;
     min-height: 0;
     grid-template-columns: 1fr;
     grid-template-rows: none;
@@ -321,15 +240,7 @@
 }
 
 @media (max-width: 640px) {
-  .g-header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-  .g-header-right {
-    gap: 0.875rem;
-  }
-  .g-toggle-label {
+  .mode-toggle-label {
     font-size: var(--fs-3xs);
   }
   /* Not enough room for the name and the selector on one line. */

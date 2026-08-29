@@ -287,3 +287,177 @@
   grid-template-columns: repeat(auto-fit, minmax(16.25rem, 1fr));
   gap: 1.375rem 1.75rem;
 }
+
+/* Site header ------------------------------------------------------------- */
+/* The one element both views share. Every property that differs between the
+   two views is transitioned, so a mode change reads as the bar resizing rather
+   than one header leaving and another arriving. The incoming view's cards are
+   held back until the resize finishes — see EXIT_MS in useMode. */
+.site-header {
+  position: sticky;
+  top: 0.875rem;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  background: rgba(var(--surf-1-rgb), var(--h-tint));
+  backdrop-filter: blur(var(--h-blur)) saturate(var(--h-sat));
+  -webkit-backdrop-filter: blur(var(--h-blur)) saturate(var(--h-sat));
+  border: 1px solid rgba(255, 255, 255, var(--h-hair));
+  border-radius: var(--h-rad);
+  transition:
+    margin 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
+    padding 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-radius 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
+    background-color 0.42s ease,
+    border-color 0.42s ease,
+    backdrop-filter 0.42s ease;
+}
+.site-header[data-mode='glance'] {
+  --h-tint: var(--surf-1-tint);
+  --h-blur: var(--surf-1-blur);
+  --h-sat: var(--surf-1-sat);
+  --h-hair: var(--surf-1-hair);
+  --h-rad: var(--rad-sm);
+  /* Bottom margin is the glance grid gap; the sides match its padding. */
+  margin: 1.125rem 1.125rem 0.625rem;
+  padding: 0.688rem 1rem;
+}
+.site-header[data-mode='detail'] {
+  --h-tint: var(--surf-2-tint);
+  --h-blur: var(--surf-2-blur);
+  --h-sat: var(--surf-2-sat);
+  --h-hair: var(--surf-2-hair);
+  --h-rad: var(--rad-md);
+  /* Lines up with the detail column: its 73.75rem cap less its 1.625rem padding. */
+  margin: 1.375rem max(1.625rem, calc((100% - 70.5rem) / 2 + 1.625rem)) 1.25rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.site-identity {
+  display: flex;
+  align-items: baseline;
+  gap: 0.875rem;
+  flex-wrap: wrap;
+}
+.site-name {
+  margin: 0;
+  /* vh keeps the name in proportion to the one-screen glance grid; the rem
+     bounds let it grow with the root on a large display. */
+  font: 300 clamp(1.375rem, 2.9vh, 1.75rem) / 1 var(--serif);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  transition:
+    font-size 0.42s cubic-bezier(0.2, 0.8, 0.2, 1),
+    font-weight 0.42s ease;
+}
+.site-header[data-mode='detail'] .site-name {
+  font-size: 1.063rem;
+  font-weight: 400;
+}
+.site-meta {
+  font: 400 var(--fs-sm) / 1 var(--sans);
+  color: var(--ink-68);
+  transition: font-size 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.site-header[data-mode='detail'] .site-meta {
+  font-size: 0.75rem;
+}
+
+/* Links and switch travel together on the right. */
+.site-header-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+/* Hidden rather than removed in detail, where the sidebar carries these: the
+   space stays reserved so the name and the switch never shift. */
+.site-links {
+  display: flex;
+  gap: 0.875rem;
+  font: 400 var(--fs-sm) / 1 var(--sans);
+  transition: opacity 0.18s ease 0.22s;
+}
+.site-links a {
+  color: var(--ink);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0 0 0.125rem;
+}
+.site-links a:hover {
+  color: var(--sage);
+}
+.site-header[data-mode='detail'] .site-links {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.16s ease,
+    visibility 0s linear 0.16s;
+}
+
+/* Mode switch ------------------------------------------------------------- */
+/* Both views render the same switch so it can flip in place across the mode
+   change: the leaving view already shows the destination state, and the knob
+   slides while the old view is still on screen. */
+.mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+.mode-toggle-label {
+  font: 400 var(--fs-2xs) / 1 var(--sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-56);
+  transition:
+    color 0.3s ease,
+    font-weight 0.3s ease;
+}
+.mode-toggle[data-mode='glance'] .mode-toggle-label:first-child,
+.mode-toggle[data-mode='detail'] .mode-toggle-label:last-child {
+  font-weight: 500;
+  color: var(--ink);
+}
+.mode-toggle-track {
+  width: 2.375rem;
+  height: 1.25rem;
+  border-radius: var(--rad-pill);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  padding: 0.125rem;
+}
+.mode-toggle-knob {
+  width: 0.875rem;
+  height: 0.875rem;
+  border-radius: 50%;
+  background: var(--ink);
+  display: block;
+  transition: transform 0.42s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.mode-toggle[data-mode='detail'] .mode-toggle-knob {
+  transform: translateX(1.125rem);
+}
+
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  .site-header-right {
+    gap: 0.875rem;
+  }
+  /* No room to hold the space open here, so the row goes entirely. */
+  .site-header[data-mode='detail'] .site-links {
+    display: none;
+  }
+}

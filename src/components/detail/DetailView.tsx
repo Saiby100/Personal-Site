@@ -1,5 +1,5 @@
+import type { Mode } from '@/hooks/useMode';
 import { useScrollProgress } from '@/hooks/useScrollProgress';
-import DetailHeader from './DetailHeader';
 import DetailNav from './DetailNav';
 import EducationSection from './EducationSection';
 import ProjectSection from './ProjectSection';
@@ -8,11 +8,11 @@ import SkillsSection from './SkillsSection';
 import SummarySection from './SummarySection';
 
 interface Props {
-  exitAnimation?: string;
-  onToggle: () => void;
+  /** Set while the view plays its exit animation, to the mode being switched to. */
+  leaving: Mode | null;
 }
 
-export default function DetailView({ exitAnimation, onToggle }: Props) {
+export default function DetailView({ leaving }: Props) {
   const progress = useScrollProgress(true);
 
   return (
@@ -20,9 +20,7 @@ export default function DetailView({ exitAnimation, onToggle }: Props) {
       {/* Outside the animated shell: a transformed ancestor would break position:fixed. */}
       <div className="d-progress" style={{ width: `${progress}%` }} aria-hidden="true" />
 
-      <div className="detail" style={{ animation: exitAnimation }}>
-        <DetailHeader onToggle={onToggle} />
-
+      <div className="detail" data-leaving={leaving ? '' : undefined}>
         <div className="d-body">
           <DetailNav />
 
