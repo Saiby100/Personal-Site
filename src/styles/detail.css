@@ -235,6 +235,11 @@
 .d-project-text {
   gap: 0.688rem;
 }
+/* Each project after the first is ruled off from the one above. */
+#project .d-split + .d-split {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+}
 
 /* Education & skills ------------------------------------------------------ */
 .d-grid > div {

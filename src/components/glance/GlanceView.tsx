@@ -21,7 +21,7 @@ export default function GlanceView({ exitAnimation, onToggle, onGoDetail }: Prop
       <SummaryCard onOpen={() => onGoDetail('summary')} />
       <TimelineCard />
       <RoleCard onOpen={() => onGoDetail('role')} />
-      <ProjectCard onOpen={() => onGoDetail('project')} />
+      <ProjectCard onOpen={(id) => onGoDetail(id)} />
       <SkillsCard />
       <ContactCard onToggle={onToggle} />
     </div>

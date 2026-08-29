@@ -2,22 +2,24 @@ import Heading from '@/components/ui/Heading';
 import MediaSlot from '@/components/ui/MediaSlot';
 import SectionTitle from '@/components/ui/SectionTitle';
 import Surface from '@/components/ui/Surface';
-import { project } from '@/data/site';
+import { projects } from '@/data/site';
 
 export default function ProjectSection() {
   return (
     <Surface as="section" id="project" level={2} radius="lg">
-      <SectionTitle rule="strong">Project</SectionTitle>
-      <div className="d-split">
-        <div className="d-split-text d-project-text">
-          <Heading>{project.name}</Heading>
-          <span className="meta">{project.stack}</span>
-          {project.body.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-        </div>
-        <MediaSlot id="parserShot" />
-      </div>
+      <SectionTitle rule="strong">Projects</SectionTitle>
+      {projects.map((project) => (
+        <article key={project.id} id={project.id} className="d-split">
+          <div className="d-split-text d-project-text">
+            <Heading>{project.name}</Heading>
+            <span className="meta">{project.stack}</span>
+            {project.body.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+          <MediaSlot id={project.detailMedia} />
+        </article>
+      ))}
     </Surface>
   );
 }
