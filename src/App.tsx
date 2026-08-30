@@ -1,48 +1,25 @@
-import { useState, useEffect } from 'react';
 import { Analytics } from '@vercel/analytics/react';
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
-import Terminal from './components/Terminal';
-import Navigation from './components/Navigation';
-import { backgrounds, text } from './constants/styles';
+import Backdrop from '@/components/Backdrop';
+import SiteHeader from '@/components/SiteHeader';
+import GlanceView from '@/components/glance/GlanceView';
+import DetailView from '@/components/detail/DetailView';
+import { useMode } from '@/hooks/useMode';
 
-function App() {
-  const [activeSection, setActiveSection] = useState('hero');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['hero', 'about', 'skills', 'contact', 'terminal'];
-      const scrollPosition = window.scrollY + 100;
-
-      for (const section of sections) {
-        const element = document.getElementById(section);
-        if (element) {
-          const { offsetTop, offsetHeight } = element;
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
-            setActiveSection(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+export default function App() {
+  const { mode, switchTo, toggle, leaving } = useMode();
 
   return (
-    <div className={`${backgrounds.primary} ${text.primary}`}>
-      <Navigation activeSection={activeSection} />
-      <Hero />
-      <About />
-      <Skills />
-      <Contact />
-      <Terminal />
+    <>
+      <Backdrop mode={mode} />
+      <div className="shell" data-mode={mode}>
+        <SiteHeader mode={leaving ?? mode} onToggle={toggle} />
+        {mode === 'glance' ? (
+          <GlanceView leaving={leaving} onGoDetail={(anchor) => switchTo('detail', anchor)} />
+        ) : (
+          <DetailView leaving={leaving} />
+        )}
+      </div>
       <Analytics />
-    </div>
+    </>
   );
 }
-
-export default App;

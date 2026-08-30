@@ -5,7 +5,8 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   cacheDir: 'node_modules/.vite',
   plugins: [react()],
-  optimizeDeps: {
-    exclude: ['lucide-react'],
+  resolve: {
+    // Root-relative so this stays free of node typings.
+    alias: { '@': '/src' },
   },
 });

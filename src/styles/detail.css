@@ -1,0 +1,298 @@
+/* Layout for the detail page. Materials and primitives live in components.css. */
+
+.detail {
+  max-width: 73.75rem;
+  margin: 0 auto;
+  padding: 0 1.625rem 4.375rem;
+}
+
+/* Animate each section; never .d-body itself — a transformed ancestor would
+   re-anchor the sticky TOC inside it. */
+.d-main > * {
+  animation: cardIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+/* Cleared out ahead of the header's resize, so the bar morphs against an empty
+   screen and the glance cards land after it. */
+.detail[data-leaving] .d-main > *,
+.detail[data-leaving] .d-toc {
+  animation: shellOutDown 0.22s cubic-bezier(0.4, 0, 1, 1) both;
+}
+
+.d-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--sage);
+  z-index: 20;
+  transition: width 0.1s linear;
+}
+
+/* Body -------------------------------------------------------------------- */
+.d-body {
+  display: grid;
+  grid-template-columns: 13.25rem minmax(0, 1fr);
+  gap: 1.375rem;
+  align-items: start;
+}
+
+/* Sidebar ----------------------------------------------------------------- */
+.d-toc {
+  position: sticky;
+  top: var(--sticky-offset);
+  padding: 1rem 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  animation: cardIn 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) 0.06s both;
+}
+.d-toc a {
+  font: 400 0.844rem/1.3 var(--sans);
+  color: var(--ink);
+}
+.d-toc a:hover {
+  color: var(--sage);
+}
+.d-toc .divider {
+  margin-top: 0.25rem;
+}
+.d-toc-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.d-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1.375rem;
+  min-width: 0;
+}
+
+.d-main > section {
+  padding: 1.625rem 1.875rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  scroll-margin-top: var(--sticky-offset);
+}
+
+.d-main > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.d-main > *:nth-child(2) {
+  animation-delay: 0.14s;
+}
+.d-main > *:nth-child(3) {
+  animation-delay: 0.18s;
+}
+.d-main > *:nth-child(4) {
+  animation-delay: 0.22s;
+}
+.d-main > *:nth-child(5) {
+  animation-delay: 0.26s;
+}
+
+/* Summary ----------------------------------------------------------------- */
+#summary {
+  gap: 1.125rem;
+}
+#summary .media {
+  height: 13.25rem;
+}
+/* Framed slots only; bleed art keeps its own rounding and no padding. */
+#summary .media:not(.media-bleed) {
+  border-radius: var(--rad-md);
+  padding: 0.75rem;
+}
+#summary .media > figcaption {
+  font-size: 0.625rem;
+  letter-spacing: 0.04em;
+}
+.d-lead {
+  margin: 0;
+  font: 300 1.563rem/1.42 var(--serif);
+  color: var(--ink);
+  text-wrap: pretty;
+}
+.d-prose {
+  margin: 0;
+  font: 400 var(--fs-lg) / 1.65 var(--sans);
+  color: var(--ink-80);
+}
+
+/* Current role ------------------------------------------------------------ */
+#role {
+  gap: 1.5rem;
+}
+.d-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 16.875rem;
+  gap: 1.75rem;
+  align-items: start;
+}
+/* No aside to sit beside: the text takes the whole row. */
+.d-split-solo {
+  grid-template-columns: minmax(0, 1fr);
+}
+.d-split-solo .d-split-text {
+  max-width: 52em;
+}
+.d-split-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.d-split .heading {
+  --h: var(--h-xl);
+  line-height: 1.15;
+}
+.d-split p {
+  margin: 0;
+  font: 400 var(--fs-lg) / 1.65 var(--sans);
+  color: var(--ink-80);
+}
+.d-split-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+}
+.d-split-aside .media {
+  height: 10.625rem;
+}
+/* Framed slots only; bleed art keeps its own rounding and no padding. */
+.d-split-aside .media:not(.media-bleed) {
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+.d-split-aside .media-aspect {
+  height: auto;
+}
+.d-note {
+  border-left: 2px solid var(--sage);
+  padding: 0.125rem 0 0.125rem 0.75rem;
+  font: var(--fs-xs) / 1.6 var(--mono);
+  color: var(--ink-68);
+}
+.d-pills {
+  gap: 0.438rem;
+  margin-top: 0.25rem;
+}
+
+.d-columns {
+  grid-template-columns: repeat(auto-fit, minmax(17.5rem, 1fr));
+}
+.d-columns article {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.d-columns .heading {
+  --h: var(--h-lg);
+}
+.d-columns p {
+  margin: 0;
+  font: 400 var(--fs-md) / 1.6 var(--sans);
+  color: var(--ink-80);
+}
+.d-columns article.is-wide {
+  grid-column: 1 / -1;
+  max-width: 44em;
+}
+
+/* Project ----------------------------------------------------------------- */
+#project .media {
+  height: 13.25rem;
+  /* The row is as tall as its text; the art sits in the middle of it. */
+  align-self: center;
+}
+/* Framed slots only; bleed art keeps its own rounding and no padding. */
+#project .media:not(.media-bleed) {
+  border-radius: 12px;
+  padding: 0.5rem;
+}
+#project .media-aspect {
+  height: auto;
+}
+.d-project-text {
+  gap: 0.688rem;
+}
+/* Each project after the first is ruled off from the one above. */
+#project .d-split + .d-split {
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+}
+
+/* Education & skills ------------------------------------------------------ */
+.d-grid > div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.d-grid .heading {
+  --h: var(--h-lg);
+}
+.d-grid p {
+  margin: 0;
+  font: 400 0.906rem/1.6 var(--sans);
+  color: var(--ink-80);
+}
+.d-skill-list {
+  font: 400 0.906rem/1.6 var(--sans);
+  color: var(--ink);
+}
+
+/* Responsive -------------------------------------------------------------- */
+@media (max-width: 900px) {
+  .detail {
+    padding: 1rem 1rem 3.75rem;
+  }
+  .d-body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .d-toc {
+    position: static;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.875rem;
+    overflow-x: auto;
+    padding: 0.75rem 0.875rem;
+    scrollbar-width: none;
+  }
+  .d-toc::-webkit-scrollbar {
+    display: none;
+  }
+  .d-toc a {
+    white-space: nowrap;
+  }
+  .d-toc .section-title {
+    display: none;
+  }
+  .d-toc .divider {
+    width: 1px;
+    height: 1.25rem;
+    margin-top: 0;
+    flex: none;
+  }
+  .d-toc-contact {
+    flex-direction: row;
+    gap: 0.875rem;
+  }
+  .d-toc .pill {
+    white-space: nowrap;
+    flex: none;
+  }
+  .d-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .d-main > section {
+    padding: 1.25rem 1.125rem;
+  }
+  .d-split .heading {
+    --h: 1.5rem;
+  }
+  .d-lead {
+    font-size: 1.313rem;
+  }
+}

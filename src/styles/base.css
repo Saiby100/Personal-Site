@@ -1,0 +1,190 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  /* Fluid root: 16px up to 1440px wide, then grows to a 22px cap (~2560px+).
+     Type and spacing are in rem, so the whole layout scales off this one value.
+     The rem + vw form (rather than plain vw) keeps browser zoom working. */
+  font-size: clamp(1rem, 0.55rem + 0.5vw, 1.375rem);
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--sage);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: var(--ink);
+}
+
+button {
+  font-family: var(--sans);
+}
+
+::selection {
+  background: rgba(180, 205, 171, 0.32);
+}
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(241, 237, 225, 0.22);
+  border-radius: 5px;
+  border: 3px solid transparent;
+  background-clip: content-box;
+}
+
+:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes shellOut {
+  from {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.965) translateY(-10px);
+    filter: blur(6px);
+  }
+}
+
+@keyframes shellOutDown {
+  from {
+    opacity: 1;
+    transform: none;
+    filter: blur(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.03) translateY(14px);
+    filter: blur(6px);
+  }
+}
+
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  inset: -3%;
+  z-index: 0;
+  /* The wallpaper carries both views; the tint gradient sits over it. */
+  background:
+    radial-gradient(120% 90% at 22% -10%, rgba(180, 205, 171, 0.1) 0%, transparent 62%),
+    url('/wallpaper.jpg') center / cover no-repeat;
+  background-color: var(--bg);
+  transform: scale(1);
+  /* No filter here, ever. A filtered element is promoted to its own composited
+     surface, and every backdrop-filter above it — the cards, the header, the
+     segmented control — then samples that surface instead of the page, so the
+     glass stops frosting. Restraint on the photo comes from the scrim, which
+     paints instead. */
+  transition: transform 0.9s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.backdrop[data-mode='detail'] {
+  transform: scale(1.07);
+}
+
+/* Only the photo needs taming, so the scrim rides with it. Two layers:
+   a flat floor that is always on, and a radial that deepens for detail.
+
+   The floor is a contrast fix rather than a mood one. The wallpaper is dark
+   overall (90th-percentile luminance 55/255) but its lit foliage runs to 112,
+   and the glass is a 6% white tint that carries the photo through almost
+   unchanged. Without the floor, a card that lands on a lit patch drops the
+   text on it to ~2.8:1; at 0.38 body copy holds 6.6:1 over the photo's 90th
+   percentile and 4.5:1 over its single brightest patch. Pushing it further
+   would clear that last patch too, but only by burying the wallpaper. */
+.scrim-floor {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: rgba(8, 16, 11, 0.38);
+}
+
+.scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  /* Starts at transparent rather than 0.18: the floor below now carries that
+     baseline, so this layer only has to add the shape. */
+  background: radial-gradient(120% 100% at 25% 0%, transparent 0%, rgba(8, 16, 11, 0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.9s ease;
+}
+.scrim[data-mode='detail'] {
+  opacity: 1;
+}
+
+.shell {
+  position: relative;
+  z-index: 1;
+}
+
+/* The header is a flow child of the shell rather than part of either view, so
+   it survives the mode change. In glance the shell owns the one-screen height
+   the grid used to own — it has to be a definite height, not a min-height, or
+   the grid below falls back to sizing itself from its content and overflows
+   the viewport. */
+.shell[data-mode='glance'] {
+  /* The floor has to stay a definite height: with an indefinite one the grid's
+     fr rows resolve against max-content and the page doubles in height. 49.375
+     is the measured minimum that clears the grid's own row minimums with the
+     larger type — on a viewport shorter than that the page scrolls, which is
+     the honest outcome. What it must never do is sit *below* the minimum, which
+     silently clips the last row of skill chips inside the card. */
+  height: max(100vh, 49.375rem);
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 900px) {
+  .shell[data-mode='glance'] {
+    height: auto;
+    display: block;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-delay: 0ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
