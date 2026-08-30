@@ -26,7 +26,7 @@ export const media: Record<
     portrait?: boolean;
   }
 > = {
-  portrait: { caption: 'portrait / mountain photograph', src: null },
+  portrait: { caption: 'portrait', src: '/me-2.png', alt: 'Salahuddin Saiet' },
   projectThumb: { caption: 'AI Reader screenshot', src: null },
   reminderThumb: {
     caption: 'Reminder app icon',
