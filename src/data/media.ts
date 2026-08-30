@@ -11,8 +11,9 @@ export type MediaId =
 /**
  * Image slots. `src: null` renders the hatched placeholder with its caption.
  * Drop a file in public/ and set `src` to swap in the real image — no JSX change.
- * `bleed` drops the frame and rounds the art itself, cropping it to the slot;
- * add `contain` for art that must not be cropped at all (a vector icon).
+ * `bleed` drops the frame and rounds the art itself, cropping it to the slot.
+ * `icon` is the app-mark treatment: no frame, and one square size across every
+ * slot so the three project cards match.
  * `portrait` sizes the slot to tall art (a phone recording) instead of the
  * landscape default.
  */
@@ -23,7 +24,7 @@ export const media: Record<
     src: string | null;
     alt?: string;
     bleed?: boolean;
-    contain?: boolean;
+    icon?: boolean;
     portrait?: boolean;
     /** Attribution, laid over the bottom of the image. */
     credit?: { author: string; authorHref: string; source: string; sourceHref: string };
@@ -34,18 +35,20 @@ export const media: Record<
     caption: 'AI Reader icon',
     src: '/ai-reader-icon.png',
     alt: 'AI Reader icon \u2014 a white star on a blue square',
-    // A vector mark with its own rounded edge: cropping it would square it off.
-    bleed: true,
-    contain: true,
+    icon: true,
   },
   reminderThumb: {
     caption: 'Reminder app icon',
     src: '/reminder-icon.png',
     alt: 'Reminder app icon \u2014 a gold mosque arch, crescent and lantern on navy',
-    // A square icon carrying its own edge: no frame, and the crop is all margin.
-    bleed: true,
+    icon: true,
   },
-  lspThumb: { caption: 'completions in a Lowdefy YAML file', src: null },
+  lspThumb: {
+    caption: 'Lowdefy icon',
+    src: '/lowdefy-icon.png',
+    alt: 'Lowdefy icon \u2014 a white and a blue block on a black rounded square',
+    icon: true,
+  },
   summaryWide: {
     caption: 'Camps Bay, Cape Town',
     src: '/cape-town.jpg',

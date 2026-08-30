@@ -20,7 +20,7 @@ export default function MediaSlot({ id, className, level, radius = 'sm' }: Props
     'media',
     !item.src && 'hatch',
     item.bleed && 'media-bleed',
-    item.contain && 'media-fit-contain',
+    item.icon && 'media-icon',
     item.portrait && 'media-portrait',
     level && 'surface',
     className,

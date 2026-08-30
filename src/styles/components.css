@@ -270,8 +270,22 @@
 .media-bleed > img {
   border-radius: inherit;
 }
-.media-fit-contain > img {
+
+/* App marks: one square size in every slot, whatever the slot's shape, so the
+   project cards line up. */
+.media-icon {
+  border: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+.media-icon > img {
+  width: min(100%, 6rem);
+  height: auto;
+  aspect-ratio: 1;
   object-fit: contain;
+  border-radius: var(--rad-sm);
 }
 
 /* Tall art (a phone recording): keep its aspect rather than the slot's, and
