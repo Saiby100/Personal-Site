@@ -9,7 +9,7 @@
 /* Animate each section; never .d-body itself — a transformed ancestor would
    re-anchor the sticky TOC inside it. */
 .d-main > * {
-  animation: cardIn 0.55s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  animation: cardIn 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
 
 /* Cleared out ahead of the header's resize, so the bar morphs against an empty
@@ -78,11 +78,21 @@
   scroll-margin-top: var(--sticky-offset);
 }
 
-.d-main > *:nth-child(1) { animation-delay: 0.1s; }
-.d-main > *:nth-child(2) { animation-delay: 0.14s; }
-.d-main > *:nth-child(3) { animation-delay: 0.18s; }
-.d-main > *:nth-child(4) { animation-delay: 0.22s; }
-.d-main > *:nth-child(5) { animation-delay: 0.26s; }
+.d-main > *:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.d-main > *:nth-child(2) {
+  animation-delay: 0.14s;
+}
+.d-main > *:nth-child(3) {
+  animation-delay: 0.18s;
+}
+.d-main > *:nth-child(4) {
+  animation-delay: 0.22s;
+}
+.d-main > *:nth-child(5) {
+  animation-delay: 0.26s;
+}
 
 /* Summary ----------------------------------------------------------------- */
 #summary {
@@ -90,6 +100,9 @@
 }
 #summary .media {
   height: 13.25rem;
+}
+/* Framed slots only; bleed art keeps its own rounding and no padding. */
+#summary .media:not(.media-bleed) {
   border-radius: var(--rad-md);
   padding: 0.75rem;
 }
@@ -101,14 +114,12 @@
   margin: 0;
   font: 300 1.563rem/1.42 var(--serif);
   color: var(--ink);
-  max-width: 23em;
   text-wrap: pretty;
 }
 .d-prose {
   margin: 0;
   font: 400 var(--fs-lg) / 1.65 var(--sans);
   color: var(--ink-80);
-  max-width: 34em;
 }
 
 /* Current role ------------------------------------------------------------ */
@@ -149,8 +160,14 @@
 }
 .d-split-aside .media {
   height: 10.625rem;
+}
+/* Framed slots only; bleed art keeps its own rounding and no padding. */
+.d-split-aside .media:not(.media-bleed) {
   border-radius: 12px;
   padding: 0.5rem;
+}
+.d-split-aside .media-aspect {
+  height: auto;
 }
 .d-note {
   border-left: 2px solid var(--sage);
@@ -187,13 +204,15 @@
 /* Project ----------------------------------------------------------------- */
 #project .media {
   height: 13.25rem;
+  /* The row is as tall as its text; the art sits in the middle of it. */
+  align-self: center;
 }
 /* Framed slots only; bleed art keeps its own rounding and no padding. */
 #project .media:not(.media-bleed) {
   border-radius: 12px;
   padding: 0.5rem;
 }
-#project .media-portrait {
+#project .media-aspect {
   height: auto;
 }
 .d-project-text {

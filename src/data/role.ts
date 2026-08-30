@@ -34,8 +34,7 @@ export const roles: Role[] = [
       {
         id: 'workflows',
         lead: true,
-        media: 'workflowShot',
-        mediaNote: 'schema snippet — before / after',
+        media: 'rolePortrait',
         title: 'Tech lead on Workflows',
         body: [
           'A feature that lets users complete forms and actions in a step-by-step tracker, coordinating stages between different parties with different staff handling each one.',

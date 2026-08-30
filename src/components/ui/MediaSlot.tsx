@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import { media, type MediaId } from '@/data/media';
 import type { SurfaceLevel, SurfaceRadius } from './Surface';
 import { cn } from './cn';
@@ -21,14 +22,20 @@ export default function MediaSlot({ id, className, level, radius = 'sm' }: Props
     !item.src && 'hatch',
     item.bleed && 'media-bleed',
     item.icon && 'media-icon',
-    item.portrait && 'media-portrait',
+    item.aspect && 'media-aspect',
     level && 'surface',
     className,
   );
 
+  const shape = {
+    '--media-aspect': item.aspect,
+    '--media-max': item.maxWidth,
+  } as CSSProperties;
+
   return (
     <figure
       className={classes}
+      style={item.aspect ? shape : undefined}
       data-level={level}
       data-radius={level ? radius : undefined}
     >

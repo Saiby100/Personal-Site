@@ -6,8 +6,11 @@ export default function SummarySection() {
   return (
     <Surface as="section" id="summary" level={2} radius="lg">
       <MediaSlot id="summaryWide" />
-      <p className="d-lead">{profile.summary.lead}</p>
-      <p className="d-prose">{profile.summary.body}</p>
+      {profile.summary.paragraphs.map((paragraph, index) => (
+        <p key={paragraph} className={index === 0 ? 'd-lead' : 'd-prose'}>
+          {paragraph}
+        </p>
+      ))}
     </Surface>
   );
 }

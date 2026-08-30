@@ -288,12 +288,12 @@
   border-radius: var(--rad-sm);
 }
 
-/* Tall art (a phone recording): keep its aspect rather than the slot's, and
-   centre it in whatever column it lands in. */
-.media-portrait {
+/* Art with a shape of its own (a phone recording, a photograph): the slot takes
+   the art's ratio rather than its own, and stays centred in its column. */
+.media-aspect {
   height: auto;
-  width: min(100%, 11.25rem);
-  aspect-ratio: 9 / 20;
+  aspect-ratio: var(--media-aspect);
+  width: min(100%, var(--media-max, 100%));
   margin-inline: auto;
 }
 
