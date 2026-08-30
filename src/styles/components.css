@@ -260,6 +260,25 @@
   object-fit: cover;
   display: block;
 }
+/* Art that carries its own edge (an app icon, say): no frame, and the image
+   fills the slot so the rounded corners clip the art itself. */
+.media-bleed {
+  border: 0;
+  padding: 0;
+  border-radius: var(--rad-sm);
+}
+.media-bleed > img {
+  border-radius: inherit;
+}
+
+/* Tall art (a phone recording): keep its aspect rather than the slot's, and
+   centre it in whatever column it lands in. */
+.media-portrait {
+  height: auto;
+  width: min(100%, 11.25rem);
+  aspect-ratio: 9 / 20;
+  margin-inline: auto;
+}
 
 /* Diagonal hatch fill for image placeholders. */
 .hatch {

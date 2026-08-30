@@ -180,8 +180,14 @@
 /* Project ----------------------------------------------------------------- */
 #project .media {
   height: 13.25rem;
+}
+/* Framed slots only; bleed art keeps its own rounding and no padding. */
+#project .media:not(.media-bleed) {
   border-radius: 12px;
   padding: 0.5rem;
+}
+#project .media-portrait {
+  height: auto;
 }
 .d-project-text {
   gap: 0.688rem;

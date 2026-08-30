@@ -16,7 +16,14 @@ interface Props {
  */
 export default function MediaSlot({ id, className, level, radius = 'sm' }: Props) {
   const item = media[id];
-  const classes = cn('media', !item.src && 'hatch', level && 'surface', className);
+  const classes = cn(
+    'media',
+    !item.src && 'hatch',
+    item.bleed && 'media-bleed',
+    item.portrait && 'media-portrait',
+    level && 'surface',
+    className,
+  );
 
   return (
     <figure
