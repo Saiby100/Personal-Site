@@ -218,6 +218,11 @@
 .d-project-text {
   gap: 0.688rem;
 }
+/* Same reason as .g-project-stack: .meta sets line-height 1, which collapses
+   into a cramped block once the stack list wraps. */
+.d-project-text .meta {
+  line-height: 1.5;
+}
 /* Each project after the first is ruled off from the one above. */
 #project .d-split + .d-split {
   border-top: 1px solid var(--rule);
@@ -294,5 +299,13 @@
   }
   .d-lead {
     font-size: 1.313rem;
+  }
+}
+
+/* Below this the header menu carries the section links, so the strip would
+   only repeat them. */
+@media (max-width: 640px) {
+  .d-toc {
+    display: none;
   }
 }
