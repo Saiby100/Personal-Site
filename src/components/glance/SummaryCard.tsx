@@ -4,7 +4,9 @@ import { profile } from '@/data/profile';
 export default function SummaryCard() {
   return (
     <Surface className="g-summary">
-      <p>{profile.glance.summary}</p>
+      {profile.glance.summary.map((paragraph) => (
+        <p key={paragraph}>{paragraph}</p>
+      ))}
     </Surface>
   );
 }
