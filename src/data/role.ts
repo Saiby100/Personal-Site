@@ -38,36 +38,36 @@ export const roles: Role[] = [
         mediaNote: 'schema snippet — before / after',
         title: 'Tech lead on Workflows',
         body: [
-          'A feature that lets clients complete forms and actions in a step-by-step tracker tied to an entity, coordinating steps between our client and their client through the CRM, with different staff handling different stages.',
-          'I invented a simplified, declarative YAML schema based on Lowdefy patterns that centralises how these actions are defined. It cut developer time on this work from one to two weeks down to two or three days and made the workflows maintainable. Two existing clients adopted it, and it became a selling point in the business model.',
+          'A feature that lets users complete forms and actions in a step-by-step tracker, coordinating stages between different parties with different staff handling each one.',
+          'I designed a simplified, declarative YAML schema that centralises how these actions are defined. It cut developer time on this work from one to two weeks down to two or three days and made the workflows maintainable across projects.',
         ],
-        metrics: ['1–2 weeks → 2–3 days', '2 clients adopted', 'declarative YAML'],
+        metrics: ['1–2 weeks → 2–3 days', 'declarative YAML'],
         glance: {
           title: 'Tech lead — Workflows',
           blurb:
-            'A declarative YAML schema that centralises how step-by-step client actions are defined and coordinated through the CRM.',
-          metrics: ['1–2 weeks → 2–3 days', '2 clients adopted'],
+            'A declarative YAML schema that centralises how step-by-step user actions are defined and coordinated.',
+          metrics: ['1–2 weeks → 2–3 days'],
         },
       },
       {
         id: 'whatsapp',
         title: 'WhatsApp solutions for field work',
         body: [
-          'Planned and implemented WhatsApp solutions used regularly by around thirty technicians to complete on-site work, architected for scalability, performance and maintainability by new developers, and integrated with the existing CRM.',
+          'Planned and implemented WhatsApp solutions used regularly by field technicians to complete on-site work, architected for scalability, performance and maintainability by new developers, and integrated with the existing CRM.',
         ],
         metrics: [],
         glance: {
           title: 'WhatsApp field solutions',
           blurb:
             'On-site work completed over WhatsApp, architected for scale and integrated with the existing CRM.',
-          metrics: ['~30 technicians'],
+          metrics: ['field technicians'],
         },
       },
       {
         id: 'kanban',
         title: 'Complex UI: Kanban boards and scheduler calendars',
         body: [
-          "Designed, built and optimised complex UI components, rebuilding a board that lagged at a few hundred cards into one that handles a thousand and more comfortably — faster than GitHub's equivalent.",
+          'Designed, built and optimised complex UI components, rebuilding a board that lagged at a few hundred cards into one that handles a thousand and more comfortably.',
         ],
         metrics: [],
         glance: {
