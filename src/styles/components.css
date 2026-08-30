@@ -438,6 +438,19 @@
 .site-links a:hover {
   color: var(--sage);
 }
+/* The CV sits in the same row but reads as a button: no underline, and a lift
+   so it separates from the text links beside it. */
+.site-links .site-cv {
+  align-self: center;
+  margin-left: 0.25rem;
+  color: var(--on-sage);
+  border-bottom: none;
+  padding: 0.438rem 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.24);
+}
+.site-links .site-cv:hover {
+  color: var(--on-sage);
+}
 .site-header[data-mode='detail'] .site-links {
   opacity: 0;
   visibility: hidden;

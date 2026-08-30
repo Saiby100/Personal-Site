@@ -18,6 +18,6 @@ export const links = {
   email: 'salahuddinsaiet.10@gmail.com',
   github: 'https://github.com/Saiby100',
   linkedin: 'https://linkedin.com/in/salahuddin-saiet-2a7190241',
-  cv: '/cv.pdf',
+  cv: '/salahuddin-saiet-cv.pdf',
   // phone: '061 403 9272', // uncomment to publish a tel: link in both views
 };
