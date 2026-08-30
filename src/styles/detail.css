@@ -121,6 +121,13 @@
   gap: 1.75rem;
   align-items: start;
 }
+/* No aside to sit beside: the text takes the whole row. */
+.d-split-solo {
+  grid-template-columns: minmax(0, 1fr);
+}
+.d-split-solo .d-split-text {
+  max-width: 52em;
+}
 .d-split-text {
   display: flex;
   flex-direction: column;

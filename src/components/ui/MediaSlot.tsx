@@ -20,6 +20,7 @@ export default function MediaSlot({ id, className, level, radius = 'sm' }: Props
     'media',
     !item.src && 'hatch',
     item.bleed && 'media-bleed',
+    item.contain && 'media-fit-contain',
     item.portrait && 'media-portrait',
     level && 'surface',
     className,
@@ -35,6 +36,18 @@ export default function MediaSlot({ id, className, level, radius = 'sm' }: Props
         <img src={item.src} alt={item.alt ?? item.caption} loading="lazy" />
       ) : (
         <figcaption>{item.caption}</figcaption>
+      )}
+      {item.src && item.credit && (
+        <figcaption className="media-credit">
+          Photo by{' '}
+          <a href={item.credit.authorHref} target="_blank" rel="noreferrer">
+            {item.credit.author}
+          </a>{' '}
+          on{' '}
+          <a href={item.credit.sourceHref} target="_blank" rel="noreferrer">
+            {item.credit.source}
+          </a>
+        </figcaption>
       )}
     </figure>
   );

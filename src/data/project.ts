@@ -7,8 +7,8 @@ export interface Project {
   body: string[];
   /** Thumb on the glance card. */
   media: MediaId;
-  /** Wider shot in the detail section. */
-  detailMedia: MediaId;
+  /** Wider shot in the detail section; omitted when there is nothing to show. */
+  detailMedia?: MediaId;
   glance: {
     /** Label for the segmented selector; falls back to `name`. */
     title?: string;
@@ -28,7 +28,6 @@ export const projects: Project[] = [
       'The pipeline stays cheap to run: OCR and formula enrichment default off, since the enrichment pass runs a vision-language model per block. Around 350 lines of tests cover the parser. It runs as a two-service Docker Compose stack alongside the Next.js front end, with a healthcheck gating startup and a named volume for the model cache.',
     ],
     media: 'projectThumb',
-    detailMedia: 'parserShot',
     glance: {
       blurb:
         'A document parsing service. PDFs with a broken text layer lost their ligatures; I re-read the affected pages with OCR to map every broken glyph, then applied that map across the document.',
