@@ -1,13 +1,13 @@
 export type MediaId =
   | 'portrait'
   | 'projectThumb'
-  | 'projectTwoThumb'
-  | 'projectThreeThumb'
+  | 'reminderThumb'
+  | 'lspThumb'
   | 'summaryWide'
   | 'workflowShot'
   | 'parserShot'
-  | 'projectTwoShot'
-  | 'projectThreeShot';
+  | 'reminderShot'
+  | 'lspShot';
 
 /**
  * Image slots. `src: null` renders the hatched placeholder with its caption.
@@ -16,11 +16,11 @@ export type MediaId =
 export const media: Record<MediaId, { caption: string; src: string | null; alt?: string }> = {
   portrait: { caption: 'portrait / mountain photograph', src: null },
   projectThumb: { caption: 'AI Reader screenshot', src: null },
-  projectTwoThumb: { caption: 'second project thumbnail', src: null },
-  projectThreeThumb: { caption: 'third project thumbnail', src: null },
+  reminderThumb: { caption: 'Reminder home screen', src: null },
+  lspThumb: { caption: 'completions in a Lowdefy YAML file', src: null },
   summaryWide: { caption: 'wide landscape photograph — coastline or ridge', src: null },
   workflowShot: { caption: 'step tracker screenshot', src: null },
   parserShot: { caption: 'parser output / reader UI', src: null },
-  projectTwoShot: { caption: 'second project screenshot', src: null },
-  projectThreeShot: { caption: 'third project screenshot', src: null },
+  reminderShot: { caption: 'Reminder \u2014 prayer times and settings', src: null },
+  lspShot: { caption: 'Lowdefy LSP \u2014 completion popup in VS Code', src: null },
 };

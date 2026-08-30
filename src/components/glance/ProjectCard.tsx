@@ -37,7 +37,7 @@ export default function ProjectCard({ onOpen }: Props) {
         </div>
       </div>
       <div className="g-project-foot">
-        <span className="meta g-project-stack">{active.stack}</span>
+        <span className="meta g-project-stack">{active.stack.join(' · ')}</span>
         <PillLink onClick={() => onOpen(active.id)}>View project</PillLink>
       </div>
     </Surface>

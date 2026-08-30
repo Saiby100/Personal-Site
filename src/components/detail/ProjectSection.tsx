@@ -12,7 +12,7 @@ export default function ProjectSection() {
         <article key={project.id} id={project.id} className="d-split">
           <div className="d-split-text d-project-text">
             <Heading>{project.name}</Heading>
-            <span className="meta">{project.stack}</span>
+            <span className="meta">{project.stack.join(' · ')}</span>
             {project.body.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
