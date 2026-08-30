@@ -248,9 +248,6 @@
 }
 
 @media (max-width: 640px) {
-  .mode-toggle-label {
-    font-size: var(--fs-3xs);
-  }
   /* Not enough room for the name and the selector on one line. */
   .g-project-head {
     flex-direction: column;

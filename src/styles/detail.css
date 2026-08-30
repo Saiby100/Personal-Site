@@ -296,3 +296,11 @@
     font-size: 1.313rem;
   }
 }
+
+/* Below this the header menu carries the section links, so the strip would
+   only repeat them. */
+@media (max-width: 640px) {
+  .d-toc {
+    display: none;
+  }
+}

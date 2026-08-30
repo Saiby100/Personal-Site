@@ -1,6 +1,8 @@
 :root {
   /* Palette */
   --bg: #0e1712;
+  /* Same colour in channels, for the tinted-glass backgrounds that need it. */
+  --bg-rgb: 14, 23, 18;
   --ink: #f1ede1;
   /* Muted inks. The suffix is the alpha; they run higher than a dark-tinted
      glass needed, because the white surfaces sit closer to the text. 75 is the
