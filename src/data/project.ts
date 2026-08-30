@@ -42,7 +42,7 @@ export const projects: Project[] = [
       'A prayer times app for South African areas, built with Expo and React Native. Times come from Supabase \u2014 a month at a time, cached per area in MMKV \u2014 so moving between days is instant and only a new month costs a request. It started out scraping masjids.co.za with cheerio; moving the data behind a table removed the app\u2019s dependence on someone else\u2019s HTML.',
       'Notifications are scheduled ahead of each prayer with a configurable lead time and per-prayer toggles, and a daily background task re-schedules them so they stay correct without the app being opened.',
       'The qibla screen computes the great-circle bearing to the Kaaba from the device location and reads heading off the magnetometer. Raw readings jitter, so the needle runs through a low-pass filter with a dead zone and a smoothing factor that ramps with the size of the turn: still when the phone is still, responsive when you actually turn.',
-      'Also in the app: the 99 names with search, light and dark themes with selectable backgrounds. It ships through EAS \u2014 GitHub Actions workflows for dev, preview and production builds on both platforms, over-the-air updates, and Play Store submission.',
+      'Also in the app: light and dark themes with selectable backgrounds. It ships through EAS \u2014 GitHub Actions workflows for dev, preview and production builds on both platforms, over-the-air updates, and Play Store submission.',
     ],
     media: 'reminderThumb',
     detailMedia: 'reminderShot',
