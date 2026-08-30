@@ -1,5 +1,6 @@
 import ExternalLink from '@/components/ui/ExternalLink';
 import ModeToggle from '@/components/ui/ModeToggle';
+import PillLink from '@/components/ui/PillLink';
 import { links, profile } from '@/data/profile';
 import type { Mode } from '@/hooks/useMode';
 
@@ -30,9 +31,11 @@ export default function SiteHeader({ mode, onToggle }: Props) {
           <a href={`mailto:${links.email}`}>Email</a>
           <ExternalLink href={links.github}>GitHub</ExternalLink>
           <ExternalLink href={links.linkedin}>LinkedIn</ExternalLink>
-          <a href={links.cv} download>
-            CV
-          </a>
+          {/* The one thing a visitor is most likely to want, so it leaves the
+              text row and takes the accent pill. */}
+          <PillLink href={links.cv} download className="site-cv">
+            Download CV
+          </PillLink>
         </nav>
 
         <ModeToggle mode={mode} onToggle={onToggle} />
