@@ -5,6 +5,8 @@ export interface Project {
   name: string;
   stack: string[];
   body: string[];
+  /** Public source; omitted while a project's repo is private. */
+  repo?: string;
   /** Thumb on the glance card. */
   media: MediaId;
   /** Wider shot in the detail section; omitted when there is nothing to show. */
@@ -27,6 +29,7 @@ export const projects: Project[] = [
       'PDFs with a broken text layer were not parsed correctly. I recovered the lost ligatures by identifying the affected pages, re-reading them with OCR to build a mapping of each unique broken glyph, then applying that mapping across the document.',
       'The pipeline stays cheap to run: OCR and formula enrichment default off, since the enrichment pass runs a vision-language model per block. Around 350 lines of tests cover the parser. It runs as a two-service Docker Compose stack alongside the Next.js front end, with a healthcheck gating startup and a named volume for the model cache.',
     ],
+    repo: 'https://github.com/Saiby100/ai-reader-site',
     media: 'projectThumb',
     glance: {
       blurb:
@@ -43,6 +46,7 @@ export const projects: Project[] = [
       'The qibla screen computes the great-circle bearing to the Kaaba from the device location and reads heading off the magnetometer. Raw readings jitter, so the needle runs through a low-pass filter with a dead zone and a smoothing factor that ramps with the size of the turn: still when the phone is still, responsive when you actually turn.',
       'Also in the app: light and dark themes with selectable backgrounds. It ships through EAS \u2014 GitHub Actions workflows for dev, preview and production builds on both platforms, over-the-air updates, and Play Store submission.',
     ],
+    repo: 'https://github.com/Saiby100/prayer-times-react',
     media: 'reminderThumb',
     detailMedia: 'reminderShot',
     glance: {
@@ -61,6 +65,7 @@ export const projects: Project[] = [
       'Completions resolve from the cursor\u2019s position in the AST \u2014 ancestor keys, the block path, whether the cursor sits inside a sequence \u2014 then rank suggestions: block schema properties first, then the defaults every block takes, then operators, actions, connections and methods, each formatted with documentation pulled from the bundled Lowdefy docs.',
       'The same 96 bundled block schemas drive validation. Every edit re-validates the document with AJV, compiling each block type\u2019s schema once and caching it, and publishes the failures back as diagnostics.',
     ],
+    repo: 'https://github.com/Saiby100/lowdefy-lsp',
     media: 'lspThumb',
     detailMedia: 'lspShot',
     glance: {

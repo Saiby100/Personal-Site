@@ -614,3 +614,18 @@
     --sticky-offset: 4.5rem;
   }
 }
+
+/* Repo link ---------------------------------------------------------------- */
+/* Underlined text link rather than a pill: the accent pill is the primary
+   action in both views, and a second one would compete with it. */
+.repo-link {
+  align-self: flex-start;
+  font: 400 var(--fs-2xs) / 1 var(--sans);
+  color: var(--ink-80);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 0 0 0.125rem;
+  white-space: nowrap;
+}
+.repo-link:hover {
+  color: var(--sage);
+}

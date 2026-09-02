@@ -223,6 +223,13 @@
 .d-project-text .meta {
   line-height: 1.5;
 }
+/* The paragraphs above run at reading gaps; the link reads as a footer to the
+   entry, so it gets a little more air. */
+.d-project-text .repo-link {
+  margin-top: 0.313rem;
+  font-size: var(--fs-xs);
+}
+
 /* Each project after the first is ruled off from the one above. */
 #project .d-split + .d-split {
   border-top: 1px solid var(--rule);
