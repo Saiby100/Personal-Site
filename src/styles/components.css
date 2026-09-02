@@ -509,7 +509,7 @@
 }
 
 /* Mobile menu ------------------------------------------------------------- */
-/* Both the button and the panel only exist below 640px; above it the links
+/* Both the button and the panel only exist below 900px; above it the links
    row and the switch sit in the bar as before. */
 .site-menu-btn {
   display: none;
@@ -590,7 +590,7 @@
   text-align: center;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 900px) {
   /* One row: the name on the left, the button on the right. Everything else
      moved into the panel. */
   .site-header {
@@ -613,4 +613,19 @@
   :root {
     --sticky-offset: 4.5rem;
   }
+}
+
+/* Repo link ---------------------------------------------------------------- */
+/* Underlined text link rather than a pill: the accent pill is the primary
+   action in both views, and a second one would compete with it. */
+.repo-link {
+  align-self: flex-start;
+  font: 400 var(--fs-2xs) / 1 var(--sans);
+  color: var(--ink-80);
+  border-bottom: 1px solid var(--rule-strong);
+  padding: 0 0 0.125rem;
+  white-space: nowrap;
+}
+.repo-link:hover {
+  color: var(--sage);
 }

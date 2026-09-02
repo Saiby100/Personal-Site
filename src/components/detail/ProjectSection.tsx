@@ -1,3 +1,4 @@
+import ExternalLink from '@/components/ui/ExternalLink';
 import Heading from '@/components/ui/Heading';
 import MediaSlot from '@/components/ui/MediaSlot';
 import SectionTitle from '@/components/ui/SectionTitle';
@@ -21,6 +22,11 @@ export default function ProjectSection() {
             {project.body.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
+            {project.repo && (
+              <ExternalLink href={project.repo} className="repo-link">
+                View source on GitHub
+              </ExternalLink>
+            )}
           </div>
           {project.detailMedia && <MediaSlot id={project.detailMedia} />}
         </article>
