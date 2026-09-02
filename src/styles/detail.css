@@ -263,37 +263,10 @@
   .d-body {
     grid-template-columns: minmax(0, 1fr);
   }
+  /* The header menu carries the section links from here down, so the sidebar
+     would only repeat them. */
   .d-toc {
-    position: static;
-    flex-direction: row;
-    align-items: center;
-    gap: 0.875rem;
-    overflow-x: auto;
-    padding: 0.75rem 0.875rem;
-    scrollbar-width: none;
-  }
-  .d-toc::-webkit-scrollbar {
     display: none;
-  }
-  .d-toc a {
-    white-space: nowrap;
-  }
-  .d-toc .section-title {
-    display: none;
-  }
-  .d-toc .divider {
-    width: 1px;
-    height: 1.25rem;
-    margin-top: 0;
-    flex: none;
-  }
-  .d-toc-contact {
-    flex-direction: row;
-    gap: 0.875rem;
-  }
-  .d-toc .pill {
-    white-space: nowrap;
-    flex: none;
   }
   .d-split {
     grid-template-columns: minmax(0, 1fr);
@@ -309,10 +282,3 @@
   }
 }
 
-/* Below this the header menu carries the section links, so the strip would
-   only repeat them. */
-@media (max-width: 640px) {
-  .d-toc {
-    display: none;
-  }
-}

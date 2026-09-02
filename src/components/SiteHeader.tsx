@@ -16,14 +16,14 @@ interface Props {
 }
 
 /** Matches the header media query in components.css. */
-const MOBILE = '(max-width: 640px)';
+const MOBILE = '(max-width: 900px)';
 
 /**
  * One bar for both views. It lives outside the views so it survives the mode
  * change: switching `data-mode` transitions it between the two sizes instead of
  * unmounting one header and mounting another.
  *
- * Below 640px the links row has nowhere to go, so it folds into a dropdown
+ * Below 900px the links row has nowhere to go, so it folds into a dropdown
  * together with the switch — and, in detail, the section links the sidebar
  * carries on wider screens.
  */
