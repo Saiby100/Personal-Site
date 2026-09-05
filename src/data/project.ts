@@ -25,7 +25,8 @@ export const projects: Project[] = [
     name: 'AI Reader',
     stack: ['Python', 'FastAPI', 'Docling', 'RapidOCR', 'Docker', 'JavaScript', 'Next.js'],
     body: [
-      'A FastAPI service that parses uploaded documents, with bearer-token auth, file validation and models loaded lazily on startup.',
+      'A reading assistant for dense documents: you upload a PDF, read it alongside a streaming chat that can answer questions about it, and keep the notes and highlights you make \u2014 all persisted to MongoDB. A Next.js front end sits over a Python parsing service.',
+      'The parser is a FastAPI service that ingests uploaded documents, with bearer-token auth, file validation and models loaded lazily on startup.',
       'PDFs with a broken text layer were not parsed correctly. I recovered the lost ligatures by identifying the affected pages, re-reading them with OCR to build a mapping of each unique broken glyph, then applying that mapping across the document.',
       'The pipeline stays cheap to run: OCR and formula enrichment default off, since the enrichment pass runs a vision-language model per block. Around 350 lines of tests cover the parser. It runs as a two-service Docker Compose stack alongside the Next.js front end, with a healthcheck gating startup and a named volume for the model cache.',
     ],

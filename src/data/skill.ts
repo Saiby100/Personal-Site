@@ -10,11 +10,11 @@ export const skillGroups: SkillGroup[] = [
   },
   {
     title: 'Frameworks',
-    items: ['Lowdefy', 'React', 'FastAPI', 'Flask', 'Express', 'Next.js'],
+    items: ['Lowdefy', 'React', 'React Native', 'Expo', 'Next.js', 'FastAPI', 'Flask', 'Express'],
   },
   {
     title: 'Databases & tools',
-    items: ['PostgreSQL', 'MongoDB', 'SQL', 'Git', 'Docker', 'Neovim', 'JIRA', 'Figma'],
+    items: ['PostgreSQL', 'MongoDB', 'SQL', 'Supabase', 'Git', 'Docker', 'Bash', 'tmux', 'Neovim', 'JIRA', 'Figma'],
   },
   {
     title: 'Practices',
