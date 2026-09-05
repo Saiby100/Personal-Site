@@ -29,7 +29,9 @@ export const roles: Role[] = [
     org: 'Lowdefy',
     start: '2024-03',
     end: null,
-    body: [],
+    body: [
+      'Lowdefy is an open-source low-code framework for building internal business tools, written in React and Node. I build client applications on it and contribute to the framework itself.',
+    ],
     highlights: [
       {
         id: 'workflows',
@@ -74,6 +76,24 @@ export const roles: Role[] = [
           blurb:
             'Rebuilt a board that lagged at a few hundred cards into one that handles a thousand comfortably.',
           metrics: ['1000+ cards'],
+        },
+      },
+      {
+        id: 'open-source',
+        title: 'Contributing to the framework',
+        body: [
+          'Nineteen merged pull requests to the open-source Lowdefy repository, adding features to the transpiler and refactoring how blocks are structured \u2014 changes that ship to every app built on the framework, not just ours.',
+        ],
+        metrics: [],
+        link: {
+          href: 'https://github.com/lowdefy/lowdefy/pulls?q=is%3Apr+author%3ASaiby100+is%3Amerged',
+          label: 'View the merged PRs on GitHub',
+        },
+        glance: {
+          title: 'Open-source contributions',
+          blurb:
+            'Transpiler features and block refactors merged into the Lowdefy framework itself, shipping to every app built on it.',
+          metrics: ['19 merged PRs'],
         },
       },
       {

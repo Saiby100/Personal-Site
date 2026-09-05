@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 import Chip from '@/components/ui/Chip';
+import ExternalLink from '@/components/ui/ExternalLink';
 import Heading from '@/components/ui/Heading';
 import MediaSlot from '@/components/ui/MediaSlot';
 import SectionTitle from '@/components/ui/SectionTitle';
@@ -39,6 +40,11 @@ export default function RoleSection() {
                       </Chip>
                     ))}
                   </div>
+                  {lead.link && (
+                    <ExternalLink href={lead.link.href} className="repo-link">
+                      {lead.link.label}
+                    </ExternalLink>
+                  )}
                 </div>
                 {lead.media && (
                   <div className="d-split-aside">
@@ -60,6 +66,11 @@ export default function RoleSection() {
                     {item.body.map((paragraph) => (
                       <p key={paragraph}>{paragraph}</p>
                     ))}
+                    {item.link && (
+                      <ExternalLink href={item.link.href} className="repo-link">
+                        {item.link.label}
+                      </ExternalLink>
+                    )}
                   </article>
                 ))}
               </div>

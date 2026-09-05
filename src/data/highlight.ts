@@ -11,6 +11,8 @@ export interface Highlight {
   /** Only read for the lead article. */
   media?: MediaId;
   mediaNote?: string;
+  /** Rendered as a footer link on the article; omitted when there is nothing to point at. */
+  link?: { href: string; label: string };
   glance: {
     /** Falls back to `title`. */
     title?: string;
