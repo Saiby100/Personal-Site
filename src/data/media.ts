@@ -13,7 +13,9 @@ export type MediaId =
  * Drop a file in public/ and set `src` to swap in the real image — no JSX change.
  * `bleed` drops the frame and rounds the art itself, cropping it to the slot.
  * `icon` is the app-mark treatment: no frame, and one square size across every
- * slot so the three project cards match. `aspect` sizes a slot to the art's own
+ * slot so the three project cards match. A `.mp4` src renders as a muted,
+ * looping, autoplaying video — the screen recordings were GIFs, which cost
+ * five to ten times the bytes for the same clip. `aspect` sizes a slot to the art's own
  * shape rather than the slot's default, `maxWidth` caps how wide it gets.
  */
 export const media: Record<
@@ -32,7 +34,7 @@ export const media: Record<
     credit?: { author: string; authorHref: string; source: string; sourceHref: string };
   }
 > = {
-  portrait: { caption: 'portrait', src: '/me-2.png', alt: 'Salahuddin Saiet' },
+  portrait: { caption: 'portrait', src: '/me-2.webp', alt: 'Salahuddin Saiet' },
   projectThumb: {
     caption: 'AI Reader icon',
     src: '/ai-reader-icon.png',
@@ -41,7 +43,7 @@ export const media: Record<
   },
   reminderThumb: {
     caption: 'Reminder app icon',
-    src: '/reminder-icon.png',
+    src: '/reminder-icon.webp',
     alt: 'Reminder app icon \u2014 a gold mosque arch, crescent and lantern on navy',
     icon: true,
   },
@@ -53,7 +55,7 @@ export const media: Record<
   },
   summaryWide: {
     caption: 'Camps Bay, Cape Town',
-    src: '/cape-town.jpg',
+    src: '/cape-town.webp',
     alt: 'Camps Bay at sunset \u2014 the Twelve Apostles above the bay and the Atlantic',
     bleed: true,
     credit: {
@@ -74,7 +76,7 @@ export const media: Record<
   },
   reminderShot: {
     caption: 'Reminder \u2014 prayer times and settings',
-    src: '/reminder-app.gif',
+    src: '/reminder-app.mp4',
     alt: 'Screen recording of Reminder \u2014 prayer times, qibla and settings',
     bleed: true,
     aspect: '9 / 20',
@@ -82,7 +84,7 @@ export const media: Record<
   },
   lspShot: {
     caption: 'Lowdefy LSP \u2014 completion popup in VS Code',
-    src: '/lowdefy-lsp.gif',
+    src: '/lowdefy-lsp.mp4',
     alt: 'Screen recording of completions and diagnostics in a Lowdefy YAML file',
     bleed: true,
     aspect: '16 / 9',

@@ -18,8 +18,11 @@
       property="og:description"
       content="Software developer in Cape Town. Two and a half years building internal business tooling and streamlining complex business processes."
     />
-    <meta property="og:image" content="/wallpaper.jpg" />
+    <meta property="og:image" content="/wallpaper.webp" />
     <meta name="twitter:card" content="summary_large_image" />
+    <!-- The backdrop is a CSS background on a React-rendered element, so the
+         browser cannot discover it until the bundle has mounted. Preload it. -->
+    <link rel="preload" as="image" href="/wallpaper.webp" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

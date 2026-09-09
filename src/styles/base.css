@@ -100,7 +100,7 @@ button {
   /* The wallpaper carries both views; the tint gradient sits over it. */
   background:
     radial-gradient(120% 90% at 22% -10%, rgba(180, 205, 171, 0.1) 0%, transparent 62%),
-    url('/wallpaper.jpg') center / cover no-repeat;
+    url('/wallpaper.webp') center / cover no-repeat;
   background-color: var(--bg);
   transform: scale(1);
   /* No filter here, ever. A filtered element is promoted to its own composited
