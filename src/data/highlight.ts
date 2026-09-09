@@ -13,7 +13,11 @@ export interface Highlight {
   mediaNote?: string;
   /** Rendered as a footer link on the article; omitted when there is nothing to point at. */
   link?: { href: string; label: string };
-  glance: {
+  /**
+   * Present only on the highlights the glance grid has room for; the rest are
+   * detail-only. The grid fits four cards.
+   */
+  glance?: {
     /** Falls back to `title`. */
     title?: string;
     blurb: string;
