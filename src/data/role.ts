@@ -103,12 +103,6 @@ export const roles: Role[] = [
           "Improved application performance throughout my time on the product, optimising database queries through strategic cache management, thoughtful query construction and optimal index usage. I also provided technical insight when discussing clients' processes, to streamline them and integrate new features into the tool.",
         ],
         metrics: [],
-        glance: {
-          title: 'Performance & data layer',
-          blurb:
-            'Query construction, cache management and index usage tuned across the product over time.',
-          metrics: ['ongoing'],
-        },
       },
     ],
   },
@@ -140,6 +134,13 @@ export const roles: Role[] = [
     },
   },
 ];
+
+/** The current role's highlights that the glance grid shows — the rest are detail-only. */
+export const glanceHighlights = (role: Role) =>
+  (role.highlights ?? []).filter(
+    (item): item is typeof item & { glance: NonNullable<typeof item.glance> } =>
+      item.glance !== undefined,
+  );
 
 export const workRoles = roles.filter((role) => role.kind === 'work');
 export const educationRoles = roles.filter((role) => role.kind === 'education');
