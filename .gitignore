@@ -66,3 +66,6 @@ Thumbs.db
 
 # Design mockups (local only)
 design/
+
+# Full-size image originals; the optimised versions in public/ are what ship.
+media-src

@@ -40,7 +40,19 @@ export default function MediaSlot({ id, className, level, radius = 'sm' }: Props
       data-radius={level ? radius : undefined}
     >
       {item.src ? (
-        <img src={item.src} alt={item.alt ?? item.caption} loading="lazy" />
+        item.src.endsWith('.mp4') ? (
+          <video
+            src={item.src}
+            aria-label={item.alt ?? item.caption}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+          />
+        ) : (
+          <img src={item.src} alt={item.alt ?? item.caption} loading="lazy" />
+        )
       ) : (
         <figcaption>{item.caption}</figcaption>
       )}
